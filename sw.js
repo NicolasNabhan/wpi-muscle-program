@@ -1,5 +1,5 @@
 /* Network-first with cache fallback: always fresh when online, still opens offline at the gym. */
-const CACHE = 'wpi-train-v1';
+const CACHE = 'wpi-train-v2';
 const ASSETS = ['./', './index.html', './manifest.json'];
 
 self.addEventListener('install', e => {

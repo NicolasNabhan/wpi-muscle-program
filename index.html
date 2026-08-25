@@ -181,6 +181,18 @@ td b{color:var(--tx)}
 .day-card.addon{border-color:rgba(76,168,255,.32);background:linear-gradient(180deg,rgba(76,168,255,.06),var(--surf) 62%)}
 .day-card.addon .num{color:var(--info)}
 .day-card.addon .pbar i{background:linear-gradient(90deg,var(--info),#9BD0FF)}
+.day-card.k-warm{border-color:rgba(255,176,32,.34);background:linear-gradient(180deg,rgba(255,176,32,.06),var(--surf) 62%)}
+.day-card.k-warm .num{color:var(--warn)}
+.day-card.k-warm .pbar i{background:linear-gradient(90deg,var(--warn),#FFD98A)}
+.day-card.k-mob{border-color:rgba(37,208,122,.3);background:linear-gradient(180deg,rgba(37,208,122,.05),var(--surf) 62%)}
+.day-card.k-mob .num{color:var(--ok)}
+.day-card.k-mob .pbar i{background:linear-gradient(90deg,var(--ok),#8DEEC0)}
+.jump{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:12px;
+  background:var(--surf2);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;cursor:pointer;
+  color:var(--tx);font:700 14px var(--ff);text-align:left}
+.jump:active{background:var(--surf3)}
+.jump small{display:block;font:500 12px var(--ff);color:var(--dim);margin-top:2px}
+.jump svg{width:18px;height:18px;flex:none;stroke:var(--acc);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .day-card .num{
   font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:1.4px;color:var(--acc);text-transform:uppercase
 }
@@ -303,9 +315,11 @@ details.cues .in b{color:var(--tx)}
 .fig g{transform-box:view-box}
 @keyframes limb{from{transform:rotate(var(--a,0deg))}to{transform:rotate(var(--b,0deg))}}
 @keyframes slide{from{transform:translate(var(--ax,0px),var(--ay,0px))}to{transform:translate(var(--bx,0px),var(--by,0px))}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .fig .an{animation:limb var(--dur,2.8s) cubic-bezier(.42,0,.58,1) infinite alternate}
 .fig .sl{animation:slide var(--dur,2.8s) cubic-bezier(.42,0,.58,1) infinite alternate}
-@media (prefers-reduced-motion: reduce){.fig .an,.fig .sl{animation:none}}
+.fig .spin{animation:spin var(--dur,2.4s) linear infinite}
+@media (prefers-reduced-motion: reduce){.fig .an,.fig .sl,.fig .spin{animation:none}}
 .vsrc{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
 .vsrc input{flex:1;min-width:170px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:10px 11px;font:500 13.5px var(--ff)}
 .steps{counter-reset:s;padding:0;list-style:none;margin:0 0 14px}
@@ -468,7 +482,10 @@ details.cues .in b{color:var(--tx)}
   <div id="day-list">
     <div class="sec"><span class="bar"></span><h2>Workout Plan</h2></div>
     <p class="lead">Tap a day to open the full session in order. Tap any exercise name to see how it's performed, plus cues, progression and your knee/dizziness modifications.</p>
-    <div class="note">The four training days are unchanged. The blue <b>Core Block</b> at the bottom is the new addition for abs — 10–15 minutes tacked onto the end of any three sessions a week (Day 1, Day 2 and Day 4 works well; skipping it on leg day is fine).</div>
+    <div class="note">Below the four training days there are three <b>add-on blocks</b>, each built exactly like a training day — every drill has reps, a form video search, an animation, cues and your knee/dizziness notes.<br><br>
+      <b style="color:#FFE0AE">Warm-Up</b> — 8–10 min before every session.<br>
+      <b style="color:#B6F2D5">Mobility &amp; Stretching</b> — 5–8 min after training or on rest days.<br>
+      <b style="color:#9BD0FF">Core Block</b> — 10–15 min at the end of any three sessions a week.</div>
     <div id="cards"></div>
     <div class="card">
       <h3>Rules for every session</h3>
@@ -802,11 +819,13 @@ details.cues .in b{color:var(--tx)}
     </div>
     <div class="card">
       <h4>Warm-up (every session)</h4>
-      <p style="font-size:14px;color:var(--mut);margin:0">5 min easy bike/elliptical → arm circles, shoulder rolls, band pull-aparts, easy hip openers (all standing or seated, head steady) → 1–2 light sets of the day's first exercise at ~50% of your working weight.</p>
+      <p style="font-size:14px;color:var(--mut);margin:0 0 10px">5 min easy bike or elliptical → shoulder rolls, arm circles, band pull-aparts, seated marches → 1–2 light sets of the day's first exercise at ~50% of your working weight. Every one of those is now a proper card with reps and a demo.</p>
+      <button class="jump" data-jumpb="warm" style="margin-top:0"><span>Open the Warm-Up block<small>6 drills, in order, 8–10 min</small></span><svg><use href="#i-chev"/></svg></button>
     </div>
     <div class="card">
-      <h4>Optional mobility</h4>
-      <p style="font-size:14px;color:var(--mut);margin:0">After training or on rest days: chest doorway stretch, lat stretch, seated hamstring and calf stretch, gentle hip flexor stretch. 20–30 seconds each, no bouncing, nothing that provokes the knee or requires head-down positions.</p>
+      <h4>Mobility &amp; stretching</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0 0 10px">Six stretches built for your restrictions — chest, lat, hamstring, calf, hip flexor and glute. 30-second holds, no bouncing, nothing that puts a knee on the floor or hangs your head down.</p>
+      <button class="jump" data-jumpb="mob" style="margin-top:0"><span>Open the Mobility block<small>Full holds, cues and animations</small></span><svg><use href="#i-chev"/></svg></button>
     </div>
   </div>
 
@@ -1511,7 +1530,218 @@ const DAYS = [
     diz:`Lie down once at the start and get up once at the end — never repeat the down-up cycle between reps. Your head stays flat and still on the mat throughout, which is exactly the position you want. Roll onto your side and push up to sitting, sit for a few seconds, then stand.`
   }]
 }
-
+,{
+  id:`warm`, addon:true, kind:`warm`, n:`Warm-Up`, tag:`Warm-Up`, sub:`Before every session · 8–10 min · never skip it`,
+  ex:[
+  {
+    id:`w1`, nolog:true, n:`Easy Bike or Elliptical`, sr:`5 minutes`, rest:`none — go straight on`, anim:`bike`,
+    q:`stationary bike warm up proper form`,
+    mus:`Whole body — raises core temperature, heart rate and blood flow to the muscles`,
+    beg:`The point is not fitness, it is temperature. Warm muscle is stronger and much harder to strain than cold muscle. Keep it genuinely easy — you should be able to hold a conversation the whole time.`,
+    steps:[
+      `Set the bike seat so your knee stays slightly bent at the bottom of the pedal stroke — never fully straight, never deeply bent.`,
+      `Use light resistance. This is a warm-up, not cardio training.`,
+      `Pedal at a steady, comfortable pace for 5 minutes, sitting upright with your head level and eyes forward.`,
+      `You are aiming to feel slightly warm and slightly breathing, not tired.`,
+      `Step off slowly and move straight into the mobility drills below.`
+    ],
+    cues:[`Easy pace — conversation pace`,`Seat height set so the knee never locks out`,`Sit tall, head steady, eyes on one fixed point`,`Elliptical works equally well; both are low impact`,`Do not skip this because you are running late — cut a set from your last exercise instead`],
+    prog:`This never gets harder. It stays 5 easy minutes forever.`,
+    knee:`Set the seat HIGH enough. A seat that is too low forces a deep knee bend on every stroke, which is the most common way people irritate a knee on a bike. Light resistance only.`,
+    diz:`Sit upright with your head still and your eyes on one fixed point ahead — do not look down at the display repeatedly. Get on and off slowly.`
+  },
+  {
+    id:`w2`, nolog:true, n:`Shoulder Rolls`, sr:`2 sets × 10 forward, 10 back`, rest:`none`, anim:`shoulderroll`,
+    q:`shoulder rolls warm up exercise`,
+    mus:`Traps, shoulder joint, upper back`,
+    beg:`Wakes up the shoulder joint and the traps before any pressing. Takes 30 seconds and makes the first set of chest press feel noticeably better.`,
+    steps:[
+      `Stand or sit tall with your arms hanging relaxed at your sides.`,
+      `Roll both shoulders forward in a big, slow circle — up, forward, down, back.`,
+      `Do 10 slow forward circles, making them as large as you comfortably can.`,
+      `Reverse and do 10 backward circles.`,
+      `Keep the arms relaxed the whole time — the shoulders do the moving, not the hands.`
+    ],
+    cues:[`Big, slow circles — not fast little shrugs`,`Arms stay loose and heavy`,`Breathe normally`,`Head stays level and still throughout`,`No weight in your hands`],
+    prog:`Not a progression exercise — it stays the same forever.`,
+    knee:`No knee involvement.`,
+    diz:`Head stays completely still; only the shoulders move. Do it seated if you prefer.`
+  },
+  {
+    id:`w3`, nolog:true, n:`Arm Circles`, sr:`2 sets × 10 each direction`, rest:`none`, anim:`armcircle`,
+    q:`arm circles warm up proper form`,
+    mus:`Deltoids, rotator cuff, upper back`,
+    beg:`Gets blood into the shoulder joint through its full range before you load it. Start with small circles and grow them — do not start big and cold.`,
+    steps:[
+      `Stand tall with your arms straight out to the sides at shoulder height.`,
+      `Make small forward circles, about the size of a grapefruit.`,
+      `Gradually grow them over 10 reps until they are as big as you can comfortably make.`,
+      `Reverse direction and repeat for 10 backward circles.`,
+      `Lower the arms and shake them out.`
+    ],
+    cues:[`Start small, finish big — never start with big cold circles`,`Arms stay straight but not locked hard`,`Shoulders down, do not shrug`,`Slow and controlled`,`Stop if anything pinches in the front of the shoulder`],
+    prog:`Stays the same. It is a warm-up, not a training exercise.`,
+    knee:`No knee involvement.`,
+    diz:`Head stays level and facing forward — do not follow your hands with your eyes.`
+  },
+  {
+    id:`w4`, nolog:true, n:`Band Pull-Aparts`, sr:`2 sets × 15 reps`, rest:`30 s`, anim:`pullapart`,
+    q:`band pull aparts proper form`,
+    mus:`Rear deltoids, mid-traps, rotator cuff`,
+    beg:`The single best pre-press drill. It switches on the muscles between your shoulder blades so your shoulders sit back where they should be during chest press. Use the lightest band in the gym.`,
+    steps:[
+      `Hold a light resistance band with both hands, arms straight out in front of you at shoulder height, hands about shoulder width apart.`,
+      `Keeping your arms straight, pull the band apart by driving your hands out to the sides.`,
+      `Squeeze your shoulder blades together at the end of the pull.`,
+      `Return slowly to the start under control — do not let the band snap back.`,
+      `Repeat for 15 smooth reps.`
+    ],
+    cues:[`Arms stay straight the whole time`,`Squeeze the shoulder blades, do not just move the hands`,`Light band — you should be able to do 15 clean reps easily`,`Shoulders stay down, away from the ears`,`Torso still, head level`],
+    prog:`If 15 reps is genuinely easy, use a slightly thicker band — but this should never be a hard exercise.`,
+    knee:`No knee involvement.`,
+    diz:`Standing still with the head fixed forward. Can be done seated on a bench.`
+  },
+  {
+    id:`w5`, nolog:true, n:`Seated Marches`, sr:`2 sets × 10 each leg`, rest:`none`, anim:`march`,
+    q:`seated marching warm up hip flexor`,
+    mus:`Hip flexors, quads, warms the knee joint gently`,
+    beg:`Knee-friendly lower-body warm-up. Gets the hips moving and warms the knee through a comfortable range without loading it at all. Do this before leg day especially.`,
+    steps:[
+      `Sit tall on a bench with both feet flat on the floor, hands resting on the bench beside you.`,
+      `Lift one knee up toward your chest as far as is comfortable.`,
+      `Lower it back down with control — do not just drop it.`,
+      `Alternate legs, 10 lifts per side, moving smoothly and steadily.`,
+      `Keep your back tall and your head still the whole time.`
+    ],
+    cues:[`Sit tall, do not slump back to make it easier`,`Lift only as far as is comfortable — no forcing`,`Controlled down, not dropped`,`No weight, no ankle weights`,`Head and torso stay still`],
+    prog:`Stays the same. It is a warm-up.`,
+    knee:`Very knee-friendly — the knee bends but carries no load at all. If the knee feels stiff, do a few extra slow reps at a smaller range before your leg work.`,
+    diz:`Fully seated, head still, no position changes.`
+  },
+  {
+    id:`w6`, nolog:true, n:`Light Ramp-Up Sets`, sr:`1–2 sets × 8–10 reps at ~50%`, rest:`60 s`, anim:`press`,
+    q:`warm up sets before working sets explained`,
+    mus:`Whatever the first exercise of the day trains`,
+    beg:`The most important warm-up of all, and the one people skip. Before your first working set, do 1–2 easy sets of that same exercise with roughly half the weight. It rehearses the movement, wakes up the right muscles, and lets you find any tightness before it matters.`,
+    steps:[
+      `Set up the first exercise of the day exactly as you will for your working sets.`,
+      `Load about 50% of your working weight — if you press 90 lb, warm up with 45 lb.`,
+      `Do 8–10 easy, controlled reps focusing on the technique cues, not effort.`,
+      `Rest about 60 seconds.`,
+      `Optional second set at ~70% for 5 reps if the working weight is heavy, then start your real sets.`
+    ],
+    cues:[`Half the weight, full attention on form`,`This should feel easy — if it does not, your working weight is too heavy`,`Same tempo and same range as your working sets`,`Use it to check for any knee or shoulder discomfort before loading up`,`Only the FIRST exercise of the day needs this — later exercises are already warm`],
+    prog:`Your warm-up weight rises automatically as your working weight rises, since it is always about half.`,
+    knee:`On leg day this matters most — a light leg press set at half weight tells you what depth is pain free that day before you have loaded it.`,
+    diz:`Same seated, supported setup as the working sets. If you feel any lightheadedness during the warm-up sets, that is your signal to keep the weights conservative that day.`
+  }]
+},
+{
+  id:`mob`, addon:true, kind:`mob`, n:`Mobility & Stretching`, tag:`Mobility`, sub:`After training or on rest days · 5–8 min · optional but useful`,
+  ex:[
+  {
+    id:`m1`, nolog:true, n:`Doorway Chest Stretch`, sr:`2 holds × 30 s per side`, rest:`none`, anim:`stretchchest`,
+    q:`doorway chest stretch proper form`,
+    mus:`Chest (pectorals), front deltoids`,
+    beg:`With all the pressing in this program, the chest gets tight and pulls the shoulders forward. This opens it back up. You will feel it immediately.`,
+    steps:[
+      `Stand in a doorway (or beside a squat rack upright) and place your forearm flat against the frame, elbow at about shoulder height.`,
+      `Step your opposite foot forward and gently rotate your chest away from that arm.`,
+      `Stop at a comfortable stretch across the front of the chest and shoulder — never at pain.`,
+      `Hold and breathe normally for 30 seconds. Do not bounce.`,
+      `Switch sides and repeat.`
+    ],
+    cues:[`Gentle — a stretch, never a strain`,`Keep the shoulder down, do not let it shrug up`,`Breathe normally throughout the hold`,`Turn the chest, not the neck`,`Stop immediately if you feel pinching or tingling down the arm`],
+    prog:`Do not chase a deeper stretch. Consistency beats intensity here.`,
+    knee:`Standing with both knees soft and unloaded.`,
+    diz:`Turn your whole body slowly, and do not twist your head to look behind you. Face forward and let the chest do the rotating. One slow position change per side.`
+  },
+  {
+    id:`m2`, nolog:true, n:`Standing Lat Stretch`, sr:`2 holds × 30 s per side`, rest:`none`, anim:`stretchlat`,
+    q:`standing lat stretch rack proper form`,
+    mus:`Lats, teres major, shoulder`,
+    beg:`Loosens the big back muscles after pulldowns and rows, which also makes overhead pressing more comfortable next session.`,
+    steps:[
+      `Stand facing a rack upright or a sturdy machine frame, and take hold of it at about chest height with one hand.`,
+      `Step back until your arm is straight, keeping your feet under your hips.`,
+      `Sit your hips back slightly and let your shoulder open, feeling the stretch down the side of your back.`,
+      `Keep your head in line with your spine, eyes forward — do not drop your head toward the floor.`,
+      `Hold 30 seconds, breathe, then switch sides.`
+    ],
+    cues:[`Arm straight, hips back`,`Keep the head level and in line with the spine`,`Feel it down the side of the back, not in the shoulder joint`,`Ease off if the shoulder pinches`,`Breathe into it — do not hold your breath`],
+    prog:`Not a progression exercise. Just do it consistently after back day.`,
+    knee:`Knees stay soft and slightly bent — no deep bending, no load.`,
+    diz:`This is the one stretch where people tend to drop the head down. Do not. Keep the chin level and the eyes forward for the whole hold.`
+  },
+  {
+    id:`m3`, nolog:true, n:`Seated Hamstring Stretch`, sr:`2 holds × 30 s per side`, rest:`none`, anim:`stretchham`,
+    q:`seated hamstring stretch bench proper form`,
+    mus:`Hamstrings, calves`,
+    beg:`Tight hamstrings pull on the pelvis and can make knee discomfort worse, so this one genuinely helps your knees over time.`,
+    steps:[
+      `Sit on the end of a bench with one leg extended straight out in front, heel on the floor, toes pointing up.`,
+      `Keep the other foot flat on the floor beside the bench.`,
+      `Sit up tall, then hinge forward slowly from the hips — not by rounding your back — until you feel a stretch behind the extended thigh.`,
+      `Keep your head in line with your spine as you hinge. Move into position once and hold still.`,
+      `Hold 30 seconds, come up slowly, then switch legs.`
+    ],
+    cues:[`Hinge at the hips, keep the chest tall`,`Toes up on the extended leg`,`Mild stretch only — never sharp`,`Move into it once, slowly; do not bob up and down`,`Come up slowly at the end`],
+    prog:`Range improves on its own over weeks. Never force it.`,
+    knee:`Keep the extended knee soft, not locked hard. If the back of the knee pulls uncomfortably, bend it slightly more.`,
+    diz:`Hinging forward lowers your head, so do it ONCE per side, slowly, and come back up slowly. No repeated up-and-down. If lowering your head at all provokes symptoms, skip this and do the standing calf stretch instead.`
+  },
+  {
+    id:`m4`, nolog:true, n:`Standing Calf Stretch`, sr:`2 holds × 30 s per side`, rest:`none`, anim:`stretchcalf`,
+    q:`standing calf stretch wall proper form`,
+    mus:`Calves (gastrocnemius and soleus), Achilles`,
+    beg:`Easiest stretch in the program and completely head-neutral. Tight calves change how you stand and load your knees, so this is worth the 60 seconds.`,
+    steps:[
+      `Stand facing a wall and place both hands on it at about chest height.`,
+      `Step one foot back about two feet, keeping that back leg straight and the heel pressed flat on the floor.`,
+      `Bend the front knee slightly and lean into the wall until you feel a stretch in the back calf.`,
+      `Keep your body in a straight line from the back heel to the head, eyes forward.`,
+      `Hold 30 seconds, then switch legs.`
+    ],
+    cues:[`Back heel stays flat on the floor — that is the whole exercise`,`Back leg straight, front knee soft`,`Lean from the ankle, not by arching the back`,`Head stays level, facing the wall`,`For the deeper soleus stretch, bend the back knee slightly on the second hold`],
+    prog:`Stays the same. Do it after leg day and after any day you did calf raises.`,
+    knee:`Very knee-friendly. Keep the front knee softly bent and do not push it far forward over the toes.`,
+    diz:`Standing still, hands supported on the wall, head level and facing forward the whole time — one of the safest options in the program.`
+  },
+  {
+    id:`m5`, nolog:true, n:`Standing Hip Flexor Stretch`, sr:`2 holds × 30 s per side`, rest:`none`, anim:`stretchhip`,
+    q:`standing hip flexor stretch proper form`,
+    mus:`Hip flexors, front of the thigh`,
+    beg:`You sit for classes all day, which shortens the hip flexors and makes the leg press and hip thrust feel worse than they should. Standing version only — the usual kneeling version puts your knee on the floor, which you do not need.`,
+    steps:[
+      `Stand next to a bench or rack for balance and take a long step back with one foot.`,
+      `Keep both feet pointing forward and the back leg straight.`,
+      `Squeeze the glute on the back leg and tuck your pelvis under — think of pulling your belt buckle up toward your chin.`,
+      `You should feel the stretch at the front of the hip of the back leg. Do not lean back.`,
+      `Hold 30 seconds, then switch sides.`
+    ],
+    cues:[`The pelvic tuck IS the stretch — without it you feel nothing`,`Squeeze the glute of the back leg`,`Ribs down, do not arch the lower back`,`Hold on to something for balance`,`Both feet pointing forward`],
+    prog:`Not a progression exercise.`,
+    knee:`Standing version keeps your knee off the floor entirely and keeps both knees lightly loaded. Do not let the front knee travel far past the toes.`,
+    diz:`Hold a rack or bench for balance the whole time and keep the head level. Step in and out of the position slowly.`
+  },
+  {
+    id:`m6`, nolog:true, n:`Seated Figure-4 Glute Stretch`, sr:`2 holds × 30 s per side`, rest:`none`, anim:`stretchglute`,
+    q:`seated figure four glute stretch proper form`,
+    mus:`Glutes, outer hip, piriformis`,
+    beg:`Loosens the glutes after hip thrusts and leg press. Tight glutes and hips are a common hidden reason knees get grumpy.`,
+    steps:[
+      `Sit tall on a bench with both feet flat on the floor.`,
+      `Lift one ankle and rest it across the opposite thigh, just above the knee, so your legs make a number 4.`,
+      `Let that knee relax open toward the floor.`,
+      `Sit tall and hinge forward slightly from the hips until you feel a stretch deep in the glute and outer hip.`,
+      `Hold 30 seconds, sit up slowly, then switch sides.`
+    ],
+    cues:[`Rest the ankle above the knee, never directly on the kneecap`,`Sit tall first, then hinge from the hips`,`Gentle — this one can get sharp quickly`,`Keep the head in line with the spine`,`Breathe and relax into it rather than forcing`],
+    prog:`Not a progression exercise. Range improves with consistency.`,
+    knee:`Place the ankle on the THIGH above the knee, not on the kneecap, and never push down on the raised knee. If the raised knee feels pinched, move the ankle further up the thigh or skip it.`,
+    diz:`Seated the whole time. Hinge forward once, slowly, and sit back up slowly — no repeated forward-and-back.`
+  }]
+}
 ];
 
 /* ---------- 2. FORM ANIMATION ENGINE (inline SVG) ---------- */
@@ -1606,6 +1836,8 @@ const PAT={
  reardelt:{v:'front',rig:'chestPadF',sh:[-26,-86],el:[46,12],load:'handle',cap:'Sweep wide · squeeze the rear delts'},
  curl:{v:'front',rig:'benchF',sh:[-8,-10],el:[0,170],load:'dbh',cap:'Elbows at your sides · full range'},
  hammer:{v:'front',rig:'benchF',sh:[-8,-10],el:[0,170],load:'dbv',cap:'Palms face in the whole rep'},
+ armcircle:{v:'front',rig:'none',sh:[-40,-140],el:[6,6],load:'none',cap:'Small circles first · then bigger'},
+ pullapart:{v:'front',rig:'none',sh:[26,-88],el:[6,4],load:'none',cap:'Arms straight · squeeze the shoulder blades'},
  ohpress:{v:'front',rig:'benchF',sh:[-40,-168],el:[-138,0],load:'dbh',cap:'Press overhead · head against the pad'}
 };
 
@@ -1622,6 +1854,10 @@ function buildAnim(key){
   if(key==='pallof') return pallof();
   if(key==='plank') return plank();
   if(key==='deadbug') return deadBug();
+  if(key==='bike') return bikeWarm();
+  if(key==='shoulderroll') return shoulderRoll();
+  if(key==='march') return marchWarm();
+  if(key&&key.indexOf('stretch')===0) return stretchPose(key.slice(7));
   return shell('','Follow the written steps below','Demo');
 }
 function armPattern(p){
@@ -1745,6 +1981,97 @@ function deadBug(){
   return shell(floorL+mat+legG+body+armG+rom(pt(SHo,6,-46),pt(SHo,-86,-46)),'Lower back stays flat · head rests down');
 }
 
+function bikeWarm(){
+  const HIP=[188,100], CK=[152,130], R=14, L1=36, L2=30;
+  const bike=`<rect x="104" y="152" width="104" height="7" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+    `<path d="M188 152 L188 106 M144 152 L132 76 M152 152 L152 130" stroke="${C.eqs}" stroke-width="5" fill="none" stroke-linecap="round"/>`+
+    `<rect x="170" y="96" width="38" height="9" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+    `<path d="M116 76 H150" stroke="${C.eqs}" stroke-width="5" fill="none" stroke-linecap="round"/>`+
+    `<circle cx="${CK[0]}" cy="${CK[1]}" r="${R}" fill="none" stroke="${C.eqs}" stroke-width="1.6" stroke-dasharray="4 4"/>`;
+  const leg=(a1,a2,col)=>rotG(HIP,a1[0],a1[1],
+      seg(HIP,pt(HIP,0,L1),12,col)+rotG(pt(HIP,0,L1),a2[0],a2[1],
+        seg(pt(HIP,0,L1),pt(pt(HIP,0,L1),0,L2),9,col),2.4),2.4);
+  const far =leg([80,87],[-50,-110],'#4A5769');
+  const near=leg([87,80],[-110,-50],C.b2);
+  const torso=seg(HIP,[172,62],17,C.b)+`<circle cx="166" cy="46" r="11.5" fill="${C.b}"/>`+seg([172,62],[136,74],9,C.b);
+  const crank=`<g class="spin" style="transform-origin:${CK[0]}px ${CK[1]}px;--dur:2.4s">`+
+    `<path d="M${CK[0]-R} ${CK[1]} L${CK[0]+R} ${CK[1]}" stroke="${C.ld}" stroke-width="3.5" stroke-linecap="round"/>`+
+    `<circle cx="${CK[0]+R}" cy="${CK[1]}" r="4.5" fill="${C.ld}"/><circle cx="${CK[0]-R}" cy="${CK[1]}" r="4.5" fill="${C.ld}"/></g>`;
+  return shell(floorL+bike+far+near+torso+crank,'Easy pace · 5 minutes · sit tall, head still');
+}
+function shoulderRoll(){
+  const B=frontBody();
+  const aR=arm(B.SR,[-6,-6],[8,8],24,'none',1);
+  const aL=arm(B.SL,[-6,-6],[8,8],24,'none',-1);
+  const ring=r=>`<g class="spin" style="transform-origin:${r[0]}px ${r[1]}px;--dur:2.2s"><circle cx="${r[0]}" cy="${r[1]-9}" r="3.6" fill="${C.ld}"/></g>`+
+    `<circle cx="${r[0]}" cy="${r[1]}" r="9" fill="none" stroke="${C.ld}" stroke-width="1.4" stroke-dasharray="3 3" opacity=".6"/>`;
+  return shell(rig('benchF')+B.body+aR.svg+aL.svg+ring(B.SR)+ring(B.SL),'Big slow circles · 10 forward, 10 back');
+}
+function marchWarm(){
+  const HIP=[188,106], KN=pt(HIP,0,34);
+  const shin=seg(KN,pt(KN,0,44),10,C.b2)+seg(pt(KN,0,44),pt(pt(KN,0,44),80,14),7,C.b2);
+  const legMove=rotG(HIP,92,44,seg(HIP,KN,13,C.b2)+rotG(KN,-88,-52,shin,2.4),2.4);
+  const legStill=seg(HIP,[144,104],12,C.b2)+seg([144,104],[140,158],10,C.b2)+seg([140,158],[122,160],7,C.b2);
+  const torso=seg(HIP,[178,64],17,C.b)+`<circle cx="172" cy="48" r="11.5" fill="${C.b}"/>`;
+  const kA=pt(HIP,92,34), kB=pt(HIP,44,34);
+  return shell(floorL+rig('seatUp')+legStill+legMove+torso+rom(kA,kB),'Lift the knee · control it down · alternate');
+}
+function stretchPose(kind){
+  const HOLD=`<text x="160" y="30" fill="${C.ld}" font-size="12.5" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif" opacity=".9">HOLD · 30 s</text>`;
+  const head=(x,y)=>`<circle cx="${x}" cy="${y}" r="11.5" fill="${C.b}"/>`;
+  const pull=(a,b)=>`<path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="${C.ld}" stroke-width="1.6" stroke-dasharray="5 4" opacity=".65" fill="none"/>`;
+  let g='', cap='';
+  if(kind==='chest'){
+    const B=frontBody();
+    const aR=arm(B.SR,[-104,-104],[-46,-46],24,'none',1);
+    const aL=arm(B.SL,[-104,-104],[-46,-46],24,'none',-1);
+    g=`<rect x="238" y="24" width="13" height="138" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+      `<rect x="66" y="24" width="13" height="138" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+      floorL+B.body+aR.svg+aL.svg+pull([210,58],[236,50])+pull([110,58],[84,50]);
+    cap='Forearms on the frame · turn the chest away';
+  } else if(kind==='lat'){
+    const SH=[168,70], HIP=[186,110];
+    g=floorL+`<rect x="60" y="20" width="13" height="142" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+      seg(HIP,SH,17,C.b)+head(162,54)+seg(SH,[76,80],9,C.b)+
+      seg(HIP,[176,146],12,C.b2)+seg([176,146],[172,158],10,C.b2)+seg([172,158],[154,160],7,C.b2)+
+      pull([120,74],[104,60]);
+    cap='Arm straight · hips back · head level';
+  } else if(kind==='ham'){
+    const HIP=[196,108], SH=[176,68];
+    g=floorL+rig('seatUp')+
+      seg(HIP,[126,120],12,C.b2)+seg([126,120],[112,124],7,C.b2)+
+      seg(HIP,[186,146],12,C.b2)+seg([186,146],[182,158],10,C.b2)+
+      seg(HIP,SH,17,C.b)+head(170,52)+seg(SH,[140,106],9,C.b)+
+      pull([150,116],[136,132]);
+    cap='Hinge from the hips once · head in line';
+  } else if(kind==='calf'){
+    const SH=[150,66], HIP=[176,104];
+    g=floorL+`<rect x="96" y="18" width="12" height="144" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+      seg(HIP,[152,124],12,C.b2)+seg([152,124],[148,158],10,C.b2)+seg([148,158],[130,160],7,C.b2)+
+      seg(HIP,[212,132],12,C.b2)+seg([212,132],[232,158],10,C.b2)+seg([232,158],[214,160],7,C.b2)+
+      seg(HIP,SH,17,C.b)+head(144,50)+seg(SH,[112,74],9,C.b)+
+      pull([228,150],[236,132]);
+    cap='Back heel flat · lean into the wall';
+  } else if(kind==='hip'){
+    const SH=[168,64], HIP=[180,104];
+    g=floorL+`<rect x="96" y="112" width="46" height="10" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+      seg(HIP,[146,130],12,C.b2)+seg([146,130],[142,158],10,C.b2)+seg([142,158],[124,160],7,C.b2)+
+      seg(HIP,[214,134],12,C.b2)+seg([214,134],[232,158],10,C.b2)+seg([232,158],[214,161],7,C.b2)+
+      seg(HIP,SH,17,C.b)+head(162,48)+seg(SH,[136,104],9,C.b)+
+      pull([190,110],[204,124]);
+    cap='Tuck the pelvis · squeeze the back glute';
+  } else {
+    const HIP=[194,108], SH=[176,68];
+    g=floorL+rig('seatUp')+
+      seg(HIP,[150,110],12,C.b2)+seg([150,110],[146,158],10,C.b2)+seg([146,158],[128,160],7,C.b2)+
+      seg(HIP,[160,96],12,C.b2)+seg([160,96],[142,112],10,C.b2)+seg([142,112],[130,104],7,C.b2)+
+      seg(HIP,SH,17,C.b)+head(170,52)+seg(SH,[150,100],9,C.b)+
+      pull([158,98],[144,86]);
+    cap='Ankle above the knee · sit tall, hinge slightly';
+  }
+  return shell(g+HOLD,cap);
+}
+
 /* ---------- 3. STATE ---------- */
 const KEY='wpi-muscle-v1';
 const today=()=>new Date().toISOString().slice(0,10);
@@ -1822,6 +2149,7 @@ function route(){
 }
 function nav(view,day){ try{ location.hash='#'+view+(day?'/'+day:''); }catch(e){} go(view,day); refreshHome(); }
 document.addEventListener('click',e=>{
+  const j=e.target.closest('[data-jumpb]'); if(j){ nav('workout',j.dataset.jumpb); return; }
   const g=e.target.closest('[data-go]'); if(g){ nav(g.dataset.go); return; }
   const c=e.target.closest('[data-close]'); if(c) closeModal();
 });
@@ -1831,8 +2159,8 @@ window.addEventListener('hashchange',route);
 function renderCards(){
   $('#cards').innerHTML=DAYS.map(d=>{
     const n=doneCount(d.id), t=d.ex.length, pct=Math.round(n/t*100);
-    return `<button class="day-card${d.addon?' addon':''}" data-day="${d.id}">
-      <div class="num">${d.addon?'Core Block · 3×/week':d.tag}</div>
+    return `<button class="day-card${d.addon?' addon'+(d.kind?' k-'+d.kind:''):''}" data-day="${d.id}">
+      <div class="num">${d.addon?(d.kind==='warm'?'Warm-Up · before every session':(d.kind==='mob'?'Mobility · after training':'Core Block · 3×/week')):d.tag}</div>
       <div class="ttl">${d.n}</div>
       <div class="sub">${d.sub}</div>
       <div class="pbar ${n===t?'ok':''}"><i style="width:${pct}%"></i></div>
@@ -1865,6 +2193,8 @@ function renderDay(id){
       <b style="color:var(--tx)">Rest:</b> ${RULES.rest}.<br><br>
       <b style="color:var(--tx)">Effort:</b> ${RULES.rir} — stop a set if form breaks, a knee hurts, or you feel lightheaded.<br><br>
       <b style="color:var(--tx)">Tempo:</b> 1–2 s up, 2–3 s down, no bouncing. Stay seated or still for the whole set and stand up slowly afterwards.`}
+      ${d.addon?'':`<button class="jump" data-jump="warm"><span>Open the full warm-up<small>6 drills with reps, form videos and animations</small></span><svg><use href="#i-chev"/></svg></button>
+      <button class="jump" data-jump="mob"><span>Open mobility &amp; stretching<small>Do it after this session or on a rest day</small></span><svg><use href="#i-chev"/></svg></button>`}
     </div>
   </details>
   ${d.ex.map((x,i)=>exCard(x,i,!!st.done[x.id])).join('')}
@@ -1892,7 +2222,7 @@ function exCard(x,i,done){
       </div>
       <button class="chk" data-chk="${x.id}" aria-label="Mark complete"><svg><use href="#i-check"/></svg></button>
     </div>
-    <div class="wt">
+    ${x.nolog?'':`<div class="wt">
       <div class="wt-l">${x.anim==='plank'?'Added weight &amp; hold time':'Weight you lift'}</div>
       <div class="wt-row">
         <button class="stp" data-stp="${x.id}" data-d="-1" aria-label="Less weight">−</button>
@@ -1903,7 +2233,7 @@ function exCard(x,i,done){
         <input class="rp-in" type="number" inputmode="numeric" placeholder="${x.anim==='plank'?'sec':'reps'}" data-log="${x.id}" data-f="r" value="${lg&&lg.r!=null?lg.r:''}">
       </div>
       <div class="wt-last" id="last-${x.id}">${lastLine(x.id)}</div>
-    </div>
+    </div>`}
     <details class="cues">
       <summary>Technique cues &amp; safety notes</summary>
       <div class="in">
@@ -1928,6 +2258,7 @@ function wireDay(id){
     $('#dp').parentElement.classList.toggle('ok',n===t);
   });
   $$('#day-detail [data-ex]').forEach(el=>el.onclick=()=>openModal(el.dataset.ex));
+  $$('#day-detail [data-jump]').forEach(b=>b.onclick=()=>nav('workout',b.dataset.jump));
   const sync=k=>{
     const L=getLog(k), chip=$('#chip-'+k), last=$('#last-'+k);
     if(chip){
@@ -1977,8 +2308,8 @@ function openModal(id){
        href="https://www.youtube.com/results?search_query=${encodeURIComponent(x.q)}">
        <svg><use href="#i-play"/></svg> Search YouTube: “${x.q}”</a>
     ${vi?'':'<p style="font-size:12.5px;color:var(--dim);margin:-6px 0 14px">Above is a motion diagram of the movement pattern. Paste any YouTube form video into the box to replace it permanently on this device.</p>'}
-    <h4>Your weight on this exercise</h4>
-    <div class="wt" style="padding:0 0 4px">
+    ${x.nolog?'':'<h4>Your weight on this exercise</h4>'}
+    <div class="wt" style="padding:0 0 4px;${x.nolog?'display:none':''}">
       <div class="wt-row">
         <button class="stp" id="m-minus" aria-label="Less weight">−</button>
         <input class="wt-in" id="m-w" type="number" inputmode="decimal" placeholder="—" value="${(function(){const L=getLog(x.id);return L.w!=null?L.w:''})()}">
@@ -1989,7 +2320,7 @@ function openModal(id){
       </div>
       <div class="wt-last" id="m-last">${lastLine(x.id)}</div>
     </div>
-    ${(function(){
+    ${x.nolog?'':(function(){
       const h=getLog(x.id).hist.slice().reverse().slice(0,6);
       if(!h.length) return '<p style="font-size:13px;color:var(--dim);margin:10px 0 16px">Once you log a few sessions here, your history shows up so you can see whether the weight is actually going up.</p>';
       return '<div class="hist">'+h.map(e=>`<div class="r"><span>${fmtDate(e.d)}</span><b>${e.w!=null?e.w+' lb':'—'}${e.r!=null?' × '+e.r:''}</b></div>`).join('')+'</div>';
@@ -2014,6 +2345,7 @@ function openModal(id){
   };
   const vc=$('#vclear'); if(vc) vc.onclick=()=>{ delete S.vids[x.id]; save(); openModal(x.id); };
   const mw=$('#m-w'), mr=$('#m-r');
+  if(mw&&mr&&!x.nolog){
   const msync=()=>{
     $('#m-last').innerHTML=lastLine(x.id);
     const chip=$('#chip-'+x.id), last=$('#last-'+x.id), L=getLog(x.id);
@@ -2026,6 +2358,7 @@ function openModal(id){
   mw.onchange=mh('w'); mw.onblur=mh('w'); mr.onchange=mh('r'); mr.onblur=mh('r');
   $('#m-minus').onclick=()=>{ mw.value=Math.max(0,Math.round(((Number(mw.value||0))-5)*10)/10)||''; saveLog(x.id,'w',mw.value); msync(); };
   $('#m-plus').onclick=()=>{ mw.value=Math.round(((Number(mw.value||0))+5)*10)/10; saveLog(x.id,'w',mw.value); msync(); };
+  }
   $('#modal').classList.add('on');
   $('#sheet').scrollTop=0;
   document.body.style.overflow='hidden';
