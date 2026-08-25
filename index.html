@@ -1,0 +1,2115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0D12">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Personal 4-day training, nutrition and core program.">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Train">
+<title>WPI Muscle Building Program – Chest &amp; Arms Emphasis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --bg:#0A0D12; --surf:#121822; --surf2:#19212C; --surf3:#212B38;
+  --line:#26313F; --line2:#33404F;
+  --tx:#E9EEF5; --mut:#93A2B6; --dim:#6C7C90;
+  --acc:#E4293C; --acc-d:#B01D2C; --acc-s:rgba(228,41,60,.14);
+  --ok:#25D07A; --ok-s:rgba(37,208,122,.14);
+  --warn:#FFB020; --warn-s:rgba(255,176,32,.13);
+  --info:#4CA8FF; --info-s:rgba(76,168,255,.13);
+  --r:16px; --r-s:10px;
+  --sh:0 1px 2px rgba(0,0,0,.5), 0 8px 24px rgba(0,0,0,.28);
+  --ff:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --fh:'Barlow Condensed','Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--tx); font-family:var(--ff);
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%}
+h1,h2,h3,h4{margin:0 0 .4em; line-height:1.15}
+h1{font-family:var(--fh); font-size:30px; font-weight:700; letter-spacing:.2px; text-transform:uppercase}
+h2{font-family:var(--fh); font-size:24px; font-weight:700; letter-spacing:.4px; text-transform:uppercase}
+h3{font-size:17px; font-weight:700; letter-spacing:.1px}
+h4{font-size:14px; font-weight:700; color:var(--mut); text-transform:uppercase; letter-spacing:.8px}
+p{margin:0 0 12px}
+a{color:var(--acc); text-decoration:none}
+ul,ol{margin:0 0 12px; padding-left:20px}
+li{margin-bottom:6px}
+small{font-size:12.5px}
+b,strong{font-weight:700}
+hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+
+/* ---------- layout ---------- */
+.wrap{max-width:940px;margin:0 auto;padding:0 14px calc(96px + env(safe-area-inset-bottom))}
+header.top{
+  position:sticky;top:0;z-index:40;
+  background:rgba(10,13,18,.9); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+.top-in{max-width:940px;margin:0 auto;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.logo{
+  width:34px;height:34px;border-radius:9px;flex:none;
+  background:linear-gradient(150deg,var(--acc),var(--acc-d));
+  display:grid;place-items:center;font-family:var(--fh);font-weight:700;font-size:15px;color:#fff;
+  box-shadow:0 3px 12px rgba(228,41,60,.4);
+}
+.top-t{font-family:var(--fh);font-size:19px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;line-height:1.05}
+.top-s{font-size:11px;color:var(--dim);letter-spacing:.4px;text-transform:uppercase;font-weight:600}
+.tabs{display:none}
+@media(min-width:760px){
+  .tabs{display:flex;gap:4px;max-width:940px;margin:0 auto;padding:0 10px 8px;overflow-x:auto}
+  .tabs button{
+    background:none;border:0;color:var(--mut);font:600 13.5px var(--ff);padding:8px 13px;border-radius:999px;
+    cursor:pointer;white-space:nowrap;letter-spacing:.2px
+  }
+  .tabs button:hover{color:var(--tx);background:var(--surf2)}
+  .tabs button.on{background:var(--acc-s);color:#FF8A96}
+}
+
+/* bottom nav (phone-first) */
+nav.bot{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(14,18,25,.94);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);
+  display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+}
+nav.bot button{
+  flex:1;background:none;border:0;color:var(--dim);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 2px;border-radius:10px;
+  font:600 10px var(--ff);letter-spacing:.3px
+}
+nav.bot button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+nav.bot button.on{color:var(--acc)}
+@media(min-width:760px){nav.bot{display:none} .wrap{padding-bottom:60px}}
+
+.view{display:none;animation:fade .22s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- pieces ---------- */
+.card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin:0 0 14px;box-shadow:var(--sh)}
+.card.pad0{padding:0;overflow:hidden}
+.sec{margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.sec .bar{width:4px;height:22px;border-radius:2px;background:var(--acc);flex:none}
+.sec h2{margin:0}
+.lead{color:var(--mut);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}
+.chip{
+  background:var(--surf2);border:1px solid var(--line);color:var(--mut);
+  border-radius:999px;padding:5px 11px;font-size:12.5px;font-weight:600;white-space:nowrap
+}
+.chip.acc{background:var(--acc-s);border-color:transparent;color:#FF8A96}
+.chip.ok{background:var(--ok-s);border-color:transparent;color:var(--ok)}
+.chip.warn{background:var(--warn-s);border-color:transparent;color:var(--warn)}
+.chip.info{background:var(--info-s);border-color:transparent;color:var(--info)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--surf2);border:1px solid var(--line2);color:var(--tx);
+  border-radius:12px;padding:12px 16px;font:700 14.5px var(--ff);cursor:pointer;
+  transition:transform .08s ease, background .15s ease
+}
+.btn:active{transform:scale(.98)}
+.btn.pri{background:linear-gradient(150deg,var(--acc),var(--acc-d));border-color:transparent;color:#fff;box-shadow:0 4px 16px rgba(228,41,60,.32)}
+.btn.gho{background:transparent}
+.btn.sm{padding:8px 12px;font-size:13px;border-radius:10px}
+.btn.full{width:100%}
+.btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.grid{display:grid;gap:12px}
+@media(min-width:620px){.g2{grid-template-columns:1fr 1fr}}
+.note{border-left:3px solid var(--info);background:var(--info-s);border-radius:0 10px 10px 0;padding:11px 13px;font-size:14px;margin:0 0 12px;color:#CFE3FA}
+.note.warn{border-color:var(--warn);background:var(--warn-s);color:#FFE0AE}
+.note.bad{border-color:var(--acc);background:var(--acc-s);color:#FFC4CA}
+.note.ok{border-color:var(--ok);background:var(--ok-s);color:#B6F2D5}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.kv:last-child{border-bottom:0}
+.kv b{white-space:nowrap}
+.kv span{color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.6px;font-weight:700}
+td b{color:var(--tx)}
+.scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* home hero */
+.hero{
+  position:relative;overflow:hidden;border-radius:20px;padding:22px 18px;margin:16px 0 16px;
+  background:radial-gradient(120% 120% at 0% 0%, #241118 0%, #12171F 55%, #0E131B 100%);
+  border:1px solid var(--line);
+}
+.hero:before{content:"";position:absolute;right:-60px;top:-70px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(228,41,60,.35),transparent 68%);filter:blur(6px)}
+.hero .eyebrow{position:relative;font:700 11.5px var(--ff);letter-spacing:1.6px;text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.hero h1{position:relative;font-size:clamp(27px,7.4vw,42px);margin-bottom:10px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero p{position:relative;color:var(--mut);margin-bottom:14px;font-size:15px}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:relative}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:9px 6px;text-align:center}
+.stat b{display:block;font-family:var(--fh);font-size:19px;letter-spacing:.5px}
+.stat span{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.7px;font-weight:700}
+
+.nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.nav-tile{
+  display:flex;align-items:center;gap:11px;text-align:left;
+  background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:14px 13px;cursor:pointer;color:var(--tx);
+  font:700 14.5px var(--ff);transition:border-color .15s,background .15s
+}
+.nav-tile:active{background:var(--surf2)}
+.nav-tile i{width:34px;height:34px;flex:none;border-radius:10px;background:var(--surf3);display:grid;place-items:center}
+.nav-tile i svg{width:18px;height:18px;stroke:var(--acc);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nav-tile small{display:block;font:500 11.5px var(--ff);color:var(--dim);letter-spacing:.2px}
+
+/* day cards */
+.day-card{
+  position:relative;display:block;width:100%;text-align:left;cursor:pointer;
+  background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:15px 14px;margin-bottom:11px;color:var(--tx);
+  overflow:hidden
+}
+.day-card:active{background:var(--surf2)}
+.day-card.addon{border-color:rgba(76,168,255,.32);background:linear-gradient(180deg,rgba(76,168,255,.06),var(--surf) 62%)}
+.day-card.addon .num{color:var(--info)}
+.day-card.addon .pbar i{background:linear-gradient(90deg,var(--info),#9BD0FF)}
+.day-card .num{
+  font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:1.4px;color:var(--acc);text-transform:uppercase
+}
+.day-card .ttl{font-family:var(--fh);font-size:23px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;line-height:1.1;margin:1px 0 4px}
+.day-card .sub{font-size:13px;color:var(--mut)}
+.day-card .go{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--dim)}
+.day-card .go svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pbar{height:5px;border-radius:3px;background:var(--surf3);overflow:hidden;margin-top:11px}
+.pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),#FF6B7A);border-radius:3px;transition:width .3s ease}
+.pbar.ok i{background:linear-gradient(90deg,var(--ok),#7BE8B5)}
+
+/* day view */
+.day-head{position:sticky;top:56px;z-index:30;background:rgba(10,13,18,.94);backdrop-filter:blur(12px);padding:10px 0 8px;margin:0 0 4px;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.day-head{top:96px}}
+.back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--mut);font:600 13.5px var(--ff);cursor:pointer;padding:4px 0}
+.back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.day-head .row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.day-head h2{margin:2px 0 0}
+.done-count{font:700 12.5px var(--ff);color:var(--mut);white-space:nowrap}
+
+/* exercise */
+.ex{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);margin-bottom:11px;overflow:hidden;transition:border-color .2s}
+.ex.done{border-color:rgba(37,208,122,.45);background:linear-gradient(180deg,rgba(37,208,122,.06),transparent 60%)}
+.ex-top{display:flex;gap:11px;padding:13px 13px 11px;align-items:flex-start}
+.ex-n{
+  width:26px;height:26px;flex:none;border-radius:8px;background:var(--surf3);color:var(--mut);
+  display:grid;place-items:center;font:700 12.5px var(--ff);margin-top:1px
+}
+.ex.done .ex-n{background:var(--ok);color:#08150F}
+.ex-body{flex:1;min-width:0}
+.ex-name{font:700 16px var(--ff);letter-spacing:.1px;line-height:1.25;margin-bottom:6px;cursor:pointer;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ex-name .play{
+  display:inline-flex;align-items:center;gap:5px;background:var(--acc-s);color:#FF8A96;border-radius:999px;
+  padding:3px 9px;font:700 11px var(--ff);letter-spacing:.4px;text-transform:uppercase;white-space:nowrap
+}
+.ex-name .play svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.opt-tag{background:var(--surf3);color:var(--dim);border-radius:6px;padding:2px 6px;font:700 10px var(--ff);letter-spacing:.7px;text-transform:uppercase}
+.ex-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2px}
+.chk{
+  width:30px;height:30px;flex:none;border-radius:9px;border:2px solid var(--line2);background:transparent;cursor:pointer;
+  display:grid;place-items:center;margin-top:0;transition:all .16s ease
+}
+.chk svg{width:15px;height:15px;stroke:var(--dim);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ex.done .chk{background:var(--ok);border-color:var(--ok)}
+.ex.done .chk svg{stroke:#08150F}
+details.cues{border-top:1px solid var(--line);margin:0}
+details.cues summary{
+  list-style:none;cursor:pointer;padding:11px 13px;font:700 13px var(--ff);color:var(--mut);
+  display:flex;align-items:center;justify-content:space-between;gap:8px
+}
+details.cues summary::-webkit-details-marker{display:none}
+details.cues summary:after{content:"";width:8px;height:8px;border-right:2px solid var(--dim);border-bottom:2px solid var(--dim);transform:rotate(45deg);transition:transform .2s;flex:none;margin-right:2px;margin-top:-3px}
+details.cues[open] summary:after{transform:rotate(-135deg);margin-top:2px}
+details.cues .in{padding:0 13px 14px;font-size:14px;color:var(--mut)}
+details.cues .in b{color:var(--tx)}
+.mod{border-radius:10px;padding:9px 11px;margin-top:9px;font-size:13.5px;line-height:1.5}
+.mod.k{background:var(--warn-s);color:#FFE0AE}
+.mod.d{background:var(--info-s);color:#CFE3FA}
+.mod b{color:inherit;text-transform:uppercase;font-size:11px;letter-spacing:.8px;display:block;opacity:.85}
+
+/* working-weight row */
+.wt{padding:0 13px 12px}
+.wt-l{font:700 10.5px var(--ff);letter-spacing:.9px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.wt-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.stp{
+  width:38px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line2);background:var(--surf2);
+  color:var(--tx);font:700 20px var(--ff);line-height:1;cursor:pointer;display:grid;place-items:center
+}
+.stp:active{background:var(--surf3)}
+.wt-in{
+  width:82px;height:40px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);
+  padding:0 10px;font:700 17px var(--ff);text-align:center
+}
+.rp-in{
+  width:70px;height:40px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);
+  padding:0 10px;font:600 15px var(--ff);text-align:center
+}
+.wt-in:focus,.rp-in:focus{outline:2px solid var(--acc-s);border-color:var(--acc)}
+.wt .unit{font:700 13px var(--ff);color:var(--mut);margin-right:2px}
+.wt .mult{font:700 15px var(--ff);color:var(--dim);padding:0 2px}
+.wt-last{font-size:12px;color:var(--dim);font-weight:600;margin-top:8px}
+.wt-last b{color:var(--mut)}
+.chip.wt-chip{background:rgba(37,208,122,.13);border-color:transparent;color:var(--ok)}
+.hist{font-size:13px;color:var(--mut);margin:0 0 14px}
+.hist .r{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line)}
+.hist .r:last-child{border-bottom:0}
+.hist .r b{color:var(--tx)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none}
+.modal.on{display:block}
+.modal .bd{position:absolute;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(3px);animation:fade .18s ease}
+.sheet{
+  position:absolute;left:0;right:0;bottom:0;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  background:var(--surf);border-radius:20px 20px 0 0;border-top:1px solid var(--line2);
+  padding:0 0 calc(24px + env(safe-area-inset-bottom));animation:up .26s cubic-bezier(.2,.9,.3,1)
+}
+@keyframes up{from{transform:translateY(30px);opacity:.4}to{transform:none;opacity:1}}
+@media(min-width:760px){
+  .sheet{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);width:min(700px,92vw);border-radius:20px;max-height:88vh;border:1px solid var(--line2)}
+  @keyframes up{from{transform:translate(-50%,-46%);opacity:.4}to{transform:translate(-50%,-50%);opacity:1}}
+}
+.sheet-head{position:sticky;top:0;background:var(--surf);z-index:2;padding:16px 16px 12px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
+.sheet-head h3{margin:0;font-size:18px}
+.sheet-head .x{margin-left:auto;background:var(--surf2);border:0;color:var(--mut);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1;flex:none}
+.sheet-in{padding:14px 16px}
+.grab{width:38px;height:4px;background:var(--line2);border-radius:2px;margin:8px auto 0}
+@media(min-width:760px){.grab{display:none}}
+
+.vid{position:relative;width:100%;aspect-ratio:16/9;background:#0A0E14;border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-bottom:12px}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.demo{position:relative;width:100%;aspect-ratio:16/9;background:
+  linear-gradient(180deg,#131A24,#0D131B);border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-bottom:10px}
+.demo .grid-bg{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:26px 26px}
+.demo svg.fig{position:absolute;inset:0;width:100%;height:100%}
+.demo .tag{position:absolute;left:10px;top:9px;font:700 10px var(--ff);letter-spacing:1.1px;text-transform:uppercase;color:var(--dim);background:rgba(10,13,18,.7);padding:4px 8px;border-radius:6px}
+.demo .cap{position:absolute;left:0;right:0;bottom:0;padding:7px 12px 8px;font:600 12px var(--ff);color:var(--mut);text-align:center;background:linear-gradient(180deg,rgba(11,16,22,0),rgba(11,16,22,.92) 45%)}
+.fig g{transform-box:view-box}
+@keyframes limb{from{transform:rotate(var(--a,0deg))}to{transform:rotate(var(--b,0deg))}}
+@keyframes slide{from{transform:translate(var(--ax,0px),var(--ay,0px))}to{transform:translate(var(--bx,0px),var(--by,0px))}}
+.fig .an{animation:limb var(--dur,2.8s) cubic-bezier(.42,0,.58,1) infinite alternate}
+.fig .sl{animation:slide var(--dur,2.8s) cubic-bezier(.42,0,.58,1) infinite alternate}
+@media (prefers-reduced-motion: reduce){.fig .an,.fig .sl{animation:none}}
+.vsrc{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.vsrc input{flex:1;min-width:170px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:10px 11px;font:500 13.5px var(--ff)}
+.steps{counter-reset:s;padding:0;list-style:none;margin:0 0 14px}
+.steps li{counter-increment:s;position:relative;padding-left:31px;margin-bottom:9px;font-size:14.5px;color:var(--mut)}
+.steps li:before{
+  content:counter(s);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:7px;
+  background:var(--acc-s);color:#FF8A96;display:grid;place-items:center;font:700 11.5px var(--ff)
+}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.spec div{background:var(--surf2);border-radius:11px;padding:10px 11px}
+.spec span{display:block;font:700 10px var(--ff);letter-spacing:.9px;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+.spec b{font-size:14px;font-weight:700;line-height:1.3}
+.spec .wide{grid-column:1/-1}
+
+/* meal / food lists */
+.meal{border:1px solid var(--line);border-radius:13px;padding:12px 13px;margin-bottom:10px;background:var(--surf2)}
+.meal .h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.meal .h b{font-family:var(--fh);font-size:17px;text-transform:uppercase;letter-spacing:.5px}
+.meal .h span{font-size:12px;color:var(--acc);font-weight:700;white-space:nowrap}
+.meal ul{margin:0;padding-left:18px;font-size:14px;color:var(--mut)}
+.macro{margin-bottom:12px}
+.macro .t{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px}
+.macro .t b{font-weight:700}
+.macro .b{height:9px;border-radius:5px;background:var(--surf3);overflow:hidden}
+.macro .b i{display:block;height:100%;border-radius:5px}
+.tick{list-style:none;padding:0;margin:0 0 12px}
+.tick li{position:relative;padding-left:24px;margin-bottom:7px;font-size:14.5px;color:var(--mut)}
+.tick li:before{content:"";position:absolute;left:4px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.tick.ok li:before{background:var(--ok)}
+.tick.no li:before{background:var(--acc);width:10px;height:2px;border-radius:1px;top:11px;left:2px}
+.loc{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.loc .lh{background:var(--surf2);padding:12px 14px;display:flex;align-items:center;gap:10px}
+.loc .lh b{font-family:var(--fh);font-size:19px;text-transform:uppercase;letter-spacing:.5px}
+.loc .lb{padding:12px 14px;font-size:14px;color:var(--mut)}
+.loc .pill{margin-left:auto;font:700 10px var(--ff);letter-spacing:.7px;text-transform:uppercase;background:var(--acc-s);color:#FF8A96;padding:4px 8px;border-radius:6px}
+
+/* tracking */
+.trk-in{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.trk-in input{background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:11px 12px;font:600 15px var(--ff);width:120px}
+.spark{width:100%;height:110px;display:block}
+.spark path.l{fill:none;stroke:var(--acc);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.spark path.f{fill:url(#sg);stroke:none}
+.spark circle{fill:var(--acc)}
+.wlist{max-height:190px;overflow-y:auto;font-size:14px;margin-top:6px;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.wlist::-webkit-scrollbar{width:6px}
+.wlist::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px}
+.wlist::-webkit-scrollbar-track{background:transparent}
+.wlist .r{display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid var(--line)}
+.wlist .r span{color:var(--mut)}
+.wlist .r button{background:none;border:0;color:var(--dim);cursor:pointer;font-size:15px;padding:0 4px}
+.foot{text-align:center;color:var(--dim);font-size:12px;padding:22px 10px 6px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></symbol>
+  <symbol id="i-dumb" viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></symbol>
+  <symbol id="i-fork" viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M17 3c-1.5 1.5-2 3.5-2 6 0 1.5.7 2.5 2 2.5V21"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.3 2.9 7.9 7 9.5 4.1-1.6 7-5.2 7-9.5V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo">WPI</div>
+    <div>
+      <div class="top-t">Muscle Building Program</div>
+      <div class="top-s">Chest · Arms · Abs · 4 Days</div>
+    </div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ HOME ============ -->
+<section class="view on" id="v-home">
+  <div class="hero">
+    <div class="eyebrow">Personal Training Plan</div>
+    <h1>Get <em>Big</em>.<br>Build <em>Abs</em>.<br>Protect Knees<br>&amp; Balance.</h1>
+    <p>A 4-day, machine-and-seated program plus a dedicated core block, built for a 17-year-old, 6'0", 166–167&nbsp;lb WPI student who wants serious size and visible abs — with every movement chosen to avoid knee stress and repeated head movement.</p>
+    <div class="stat-row">
+      <div class="stat"><b>17</b><span>Years</span></div>
+      <div class="stat"><b>6'0"</b><span>Height</span></div>
+      <div class="stat"><b>166</b><span>Lb Now</span></div>
+      <div class="stat"><b>3.5k</b><span>Kcal/Day</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:rgba(228,41,60,.35)">
+    <h3 style="margin-bottom:8px">Today's plan</h3>
+    <p class="lead" style="margin-bottom:12px" id="today-line">Pick up where you left off.</p>
+    <button class="btn pri full" id="today-btn">Start next workout</button>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>The Goals</h2></div>
+  <div class="card">
+    <div class="kv"><span>Primary goal</span><b>Maximum muscle + body weight</b></div>
+    <div class="kv"><span>Look</span><b>Big up top, visible abs</b></div>
+    <div class="kv"><span>Emphasis</span><b>Chest, arms &amp; abs</b></div>
+    <div class="kv"><span>Training</span><b>4 days + core block 3×/week</b></div>
+    <div class="kv"><span>Calories</span><b>3,400–3,600 kcal/day</b></div>
+    <div class="kv"><span>Rate of gain</span><b>0.5–0.75 lb / week</b></div>
+    <div class="kv"><span>Guardrail</span><b>Waist grows slower than chest &amp; arms</b></div>
+    <div class="kv"><span>First visible change</span><b>8–12+ weeks</b></div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Big AND Abs — How That Actually Works</h2></div>
+  <p class="lead">These two goals pull against each other, so here is the honest version before you start.</p>
+  <div class="card">
+    <ul class="tick">
+      <li><b>You are already lean.</b> At 6'0" and 166 lb you are not carrying much fat. For you, abs are not hiding under a layer of fat — the abs themselves are just small. Abs are muscles. You have to <em>build</em> them like chest and arms, which is why this plan now has a real weighted core block instead of a token set of crunches.</li>
+      <li><b>Size comes from a surplus.</b> You cannot gain a lot of muscle while eating at maintenance. Calories go up to <b>3,400–3,600</b> and target gain goes to <b>0.5–0.75 lb/week</b> — faster than the old plan, still controlled.</li>
+      <li><b>Faster is not better.</b> Past ~0.75 lb/week your body cannot build muscle any quicker, so the extra is fat — and fat over the stomach is the one thing that actually does hide abs. Gaining 2 lb a week for a month means buying yourself a cut you did not need.</li>
+      <li><b>The waist is your dashboard.</b> Chest and arms up, waist roughly flat = perfect. Waist climbing as fast as your arms = surplus too big, pull back 200 kcal.</li>
+      <li><b>You cannot spot-reduce.</b> Doing 300 crunches does not burn stomach fat. Crunches build the muscle; food controls the fat. Both matter, neither replaces the other.</li>
+      <li><b>Timeline is honest, not hype.</b> Ab strength and thickness in 6–10 weeks. Real upper-body size in 3–6 months. "Big" is a 2–4 year project, and starting at 17 with good sleep and real food is the best possible position to start from.</li>
+    </ul>
+    <div class="note ok">Best-case realistic first year: roughly 15–25 lb of mostly muscle, a visibly bigger chest, arms and shoulders, and abs that show at rest. That is a genuinely different body — and it is only reachable if you stop skipping meals.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Two Rules That Shape Everything</h2></div>
+  <div class="note warn"><b>Dizziness with repeated head movement.</b> Every exercise here is done seated, supported, or standing still with the head in one steady position. No fast up-and-down head changes, no lying-to-standing repeats, no inverted or bent-over-with-hanging-head positions. Between sets, sit still and stand up slowly.</div>
+  <div class="note bad"><b>Knee issues.</b> No heavy barbell back squats, walking lunges, Bulgarian split squats, jumping, burpees, or mountain climbers. Legs are trained with the leg press (controlled depth), machines, and supported hip work — pain-free range only.</div>
+  <div class="note">This site is an organized training and nutrition plan, not medical advice. Because of the dizziness and the knee history, get both checked by a doctor or athletic trainer — WPI has Health Services on campus — before pushing hard.</div>
+
+  <div class="sec"><span class="bar"></span><h2>Where To Go</h2></div>
+  <div class="nav-grid">
+    <button class="nav-tile" data-go="workout"><i><svg><use href="#i-dumb"/></svg></i><span>Workout Plan<small>4 days + core block</small></span></button>
+    <button class="nav-tile" data-go="nutrition"><i><svg><use href="#i-fork"/></svg></i><span>Nutrition &amp; Diet<small>3,400–3,600 kcal</small></span></button>
+    <button class="nav-tile" data-go="progress"><i><svg><use href="#i-chart"/></svg></i><span>Progression<small>Overload + tracking</small></span></button>
+    <button class="nav-tile" data-go="safety"><i><svg><use href="#i-shield"/></svg></i><span>Safety &amp; Recovery<small>Limits, sleep, supps</small></span></button>
+    <button class="nav-tile" data-go="dining"><i><svg><use href="#i-pin"/></svg></i><span>WPI Dining Guide<small>Morgan, Bap, Halal</small></span></button>
+    <button class="nav-tile" data-go="progress"><i><svg><use href="#i-chart"/></svg></i><span>Track Weight<small>Log &amp; weekly average</small></span></button>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>How The Week Looks</h2></div>
+  <div class="card scroll-x">
+    <table>
+      <tr><th>Day</th><th>Session</th><th>Focus</th></tr>
+      <tr><td><b>Mon</b></td><td>Day 1</td><td>Chest + Triceps</td></tr>
+      <tr><td><b>Tue</b></td><td>Day 2</td><td>Back + Biceps</td></tr>
+      <tr><td><b>Wed</b></td><td>Rest</td><td>Walk, sleep, eat</td></tr>
+      <tr><td><b>Thu</b></td><td>Day 3</td><td>Legs (knee-friendly)</td></tr>
+      <tr><td><b>Fri</b></td><td>Day 4</td><td>Shoulders + Arms</td></tr>
+      <tr><td><b>Sat / Sun</b></td><td>Rest</td><td>Optional easy bike/walk</td></tr>
+    </table>
+    <p class="lead" style="margin:12px 0 0">The exact weekdays don't matter. What matters: 4 sessions, at least one rest day between Day 1 and Day 4, and never skipping food on training days.</p>
+  </div>
+</section>
+
+<!-- ============ WORKOUT ============ -->
+<section class="view" id="v-workout">
+  <div id="day-list">
+    <div class="sec"><span class="bar"></span><h2>Workout Plan</h2></div>
+    <p class="lead">Tap a day to open the full session in order. Tap any exercise name to see how it's performed, plus cues, progression and your knee/dizziness modifications.</p>
+    <div class="note">The four training days are unchanged. The blue <b>Core Block</b> at the bottom is the new addition for abs — 10–15 minutes tacked onto the end of any three sessions a week (Day 1, Day 2 and Day 4 works well; skipping it on leg day is fine).</div>
+    <div id="cards"></div>
+    <div class="card">
+      <h3>Rules for every session</h3>
+      <ul class="tick">
+        <li><b>Rest 90–180 seconds</b> between sets — full rest on the big presses, shorter on arms.</li>
+        <li><b>Leave 1–3 reps in reserve</b> on most sets. You should always feel you could do 1–3 more with good form.</li>
+        <li><b>Warm up 5 minutes</b> on a bike or elliptical (low impact, head steady), then easy shoulder/hip mobility, then 1–2 light sets of the first exercise.</li>
+        <li><b>Control the weight:</b> about 1–2 seconds up, 2–3 seconds down. No bouncing, no throwing.</li>
+        <li><b>Stop a set</b> if form breaks, a knee hurts, or the room starts to move. That set is over — that's not failure, that's the plan working.</li>
+      </ul>
+    </div>
+  </div>
+  <div id="day-detail" style="display:none"></div>
+</section>
+
+<!-- ============ NUTRITION ============ -->
+<section class="view" id="v-nutrition">
+  <div class="sec"><span class="bar"></span><h2>Nutrition &amp; Diet</h2></div>
+  <p class="lead">You are naturally skinny. Training is only half of it — you will not gain weight without eating more than you burn, consistently, on training days <em>and</em> rest days. These numbers are the bigger, size-focused version: enough surplus to actually grow, small enough that your waist does not run away from you.</p>
+
+  <div class="card">
+    <h3>Your starting numbers</h3>
+    <div class="kv"><span>Stats</span><b>17 yo male · 6'0" · 166–167 lb</b></div>
+    <div class="kv"><span>Calories</span><b>3,400–3,600 kcal/day</b></div>
+    <div class="kv"><span>Protein</span><b>170–190 g</b></div>
+    <div class="kv"><span>Fat</span><b>80–95 g</b></div>
+    <div class="kv"><span>Carbs</span><b>400–450 g</b></div>
+    <div class="kv"><span>Target gain</span><b>0.5–0.75 lb / week</b></div>
+    <div class="kv"><span>Hard ceiling</span><b>1 lb / week — past this it is fat</b></div>
+    <div class="kv"><span>Eating occasions</span><b>5–6 per day</b></div>
+    <div style="margin-top:16px">
+      <div class="macro"><div class="t"><span>Protein · 170–190 g</span><b>~720 kcal</b></div><div class="b"><i style="width:21%;background:linear-gradient(90deg,#E4293C,#FF6B7A)"></i></div></div>
+      <div class="macro"><div class="t"><span>Carbs · 400–450 g</span><b>~1,700 kcal</b></div><div class="b"><i style="width:49%;background:linear-gradient(90deg,#4CA8FF,#8CC8FF)"></i></div></div>
+      <div class="macro"><div class="t"><span>Fat · 80–95 g</span><b>~790 kcal</b></div><div class="b"><i style="width:23%;background:linear-gradient(90deg,#FFB020,#FFD27A)"></i></div></div>
+    </div>
+    <div class="note ok" style="margin-top:6px">Hit protein and total calories first. Carb and fat splits can move around day to day — nobody gains or loses muscle over 20 g of carbs.</div>
+    <div class="note warn" style="margin-bottom:0">That is roughly <b>400 kcal more than the original plan</b>. If jumping straight there makes you feel stuffed and sick, add 200 kcal now and the other 200 in a week — a surplus you can actually eat every day beats a perfect one you quit after four days.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>The Adjustment Rule</h2></div>
+  <div class="card">
+    <ul class="tick">
+      <li><b>Weigh yourself 4–7 mornings a week</b>, right after the bathroom, before eating. Use the <b>weekly average</b>, never one single day.</li>
+      <li><b>Weight flat for 10–14 days?</b> Add <b>250–300 kcal/day</b> (one shake, or a second scoop of rice and an extra chicken thigh).</li>
+      <li><b>Gaining faster than ~0.75 lb/week for two weeks?</b> Pull back 200–250 kcal/day. Your body cannot build muscle any faster than that, so the extra is going to your stomach — the one place you least want it.</li>
+      <li><b>Gaining 0.5–0.75 lb/week?</b> Change nothing. That is 2–3 lb a month, and it is close to the fastest anyone builds real muscle without also getting soft.</li>
+      <li><b>Check the waist, not just the scale.</b> Measure your waist at the belly button every two weeks. Chest and arms up while the waist holds within about an inch = the surplus is right. Waist up an inch a month = too fast.</li>
+      <li><b>Don't chase daily swings.</b> Water, salt, and how much food is in you can move the scale 3 lb in a day.</li>
+    </ul>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Example Day — ~3,500 kcal / ~185 g Protein</h2></div>
+  <p class="lead">Built around a real WPI schedule. Times are examples — the structure is the point: never go more than ~4 hours awake without eating something with protein in it.</p>
+
+  <div class="meal">
+    <div class="h"><b>1 · Breakfast (Morgan or dorm)</b><span>~700 kcal · 33 g P</span></div>
+    <ul>
+      <li>2–3 scrambled eggs, or an omelet with cheese</li>
+      <li>2 slices toast with peanut butter or butter</li>
+      <li>1 cup home fries / hash browns</li>
+      <li>12 oz whole milk</li>
+    </ul>
+  </div>
+  <div class="meal">
+    <div class="h"><b>2 · Mid-morning shake (between classes)</b><span>~550 kcal · 35 g P</span></div>
+    <ul>
+      <li>1 scoop whey protein + 1 cup whole milk</li>
+      <li>1 banana + 1 tbsp peanut butter</li>
+      <li>Blend, or shake it in a bottle on the way to class</li>
+    </ul>
+  </div>
+  <div class="meal">
+    <div class="h"><b>3 · Lunch (Chick-N-Bap / Halal Shack)</b><span>~850 kcal · 45 g P</span></div>
+    <ul>
+      <li>Rice bowl with <b>double</b> chicken (Korean BBQ or halal-style)</li>
+      <li>Full scoop of rice, normal sauce</li>
+      <li>Small side of vegetables</li>
+      <li>Water or milk — skip soda calories that do not fill you</li>
+    </ul>
+  </div>
+  <div class="meal">
+    <div class="h"><b>4 · Pre/post-workout snack</b><span>~350 kcal · 16 g P</span></div>
+    <ul>
+      <li>Granola bar + banana + 12 oz milk, <em>or</em></li>
+      <li>Greek yogurt + granola + honey</li>
+    </ul>
+  </div>
+  <div class="meal">
+    <div class="h"><b>5 · Dinner (Morgan)</b><span>~750 kcal · 43 g P</span></div>
+    <ul>
+      <li>2 chicken thighs, or a serving of beef or pork</li>
+      <li>Two scoops of rice or pasta with sauce</li>
+      <li>Vegetables + cheese or sauce on top</li>
+      <li>Roll with butter, and a milk to drink</li>
+    </ul>
+  </div>
+  <div class="meal">
+    <div class="h"><b>6 · Before bed</b><span>~300 kcal · 18 g P</span></div>
+    <ul>
+      <li>Greek yogurt or cottage cheese with honey</li>
+      <li>Small handful of nuts or trail mix</li>
+      <li>Or the Night Cap shake below if you cannot face solid food</li>
+    </ul>
+  </div>
+  <div class="card" style="background:var(--surf2)">
+    <div class="kv"><span>Daily total</span><b>≈ 3,500 kcal</b></div>
+    <div class="kv"><span>Protein</span><b>≈ 190 g</b></div>
+    <div class="kv"><span>Missed a meal?</span><b>Replace it with a shake the same day — do not just skip it</b></div>
+  </div>
+  <div class="note warn">Meal 6 is the one people drop first, and it is the easiest 350 kcal of the day. If your weight stalls, look here before you change anything else.</div>
+
+  <div class="sec"><span class="bar"></span><h2>High-Calorie, High-Protein Foods</h2></div>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Dorm-friendly (no kitchen)</h4>
+      <ul class="tick ok">
+        <li>Whole milk &amp; chocolate milk — easiest 150–250 kcal you'll ever drink</li>
+        <li>Peanut butter (~190 kcal / 2 tbsp)</li>
+        <li>Greek yogurt cups, cottage cheese</li>
+        <li>Trail mix, mixed nuts, granola bars</li>
+        <li>Instant oats + milk + honey (microwave)</li>
+        <li>Tuna or chicken pouches, beef jerky</li>
+        <li>Bagels + cream cheese, tortillas</li>
+        <li>Protein powder, ready-to-drink shakes</li>
+        <li>Dried fruit, bananas, apples with PB</li>
+        <li>Microwave rice pouches, mac &amp; cheese cups</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Dining-hall friendly</h4>
+      <ul class="tick ok">
+        <li>Chicken thighs (more calories than breast), roast beef, pork</li>
+        <li>Eggs — omelets, scrambled, hard-boiled (grab 2 extra to go)</li>
+        <li>Rice, pasta, potatoes, fries — <b>double</b> the scoop</li>
+        <li>Deli sandwiches: double meat + cheese + mayo/avocado</li>
+        <li>Pizza, burritos, quesadillas</li>
+        <li>Soups with beans/meat over rice</li>
+        <li>Cheese on everything, olive oil / dressing on salads</li>
+        <li>Milk at every meal instead of water or soda</li>
+        <li>Ice cream / dessert as a calorie top-up when short</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Shakes For When You're Too Full To Chew</h2></div>
+  <p class="lead">Liquid calories bypass the "I'm stuffed" problem that stops skinny guys from gaining. Blend, or shake in a bottle if you don't have a blender.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h4>The 700 (blender)</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">1 cup whole milk · 1 scoop whey · 1 banana · 2 tbsp peanut butter · 1/2 cup oats · honey<br><b style="color:var(--tx)">≈ 700 kcal · 45 g protein</b></p>
+    </div>
+    <div class="card">
+      <h4>The Fast 450 (shaker bottle)</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">12 oz whole or chocolate milk · 1 scoop whey · 2 tbsp powdered peanut butter<br><b style="color:var(--tx)">≈ 450 kcal · 40 g protein</b></p>
+    </div>
+    <div class="card">
+      <h4>Berry Recovery</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">1 cup milk · 1 cup Greek yogurt · 1 cup frozen berries · 1/4 cup granola · honey<br><b style="color:var(--tx)">≈ 550 kcal · 35 g protein</b></p>
+    </div>
+    <div class="card">
+      <h4>Night Cap</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">1 cup milk · 1 scoop casein or whey · 2 tbsp peanut butter · cinnamon<br><b style="color:var(--tx)">≈ 480 kcal · 40 g protein</b></p>
+    </div>
+  </div>
+  <div class="note warn">Drink shakes <em>between</em> meals, not instead of them — the goal is to add calories on top of real food, not replace it.</div>
+
+  <div class="sec"><span class="bar"></span><h2>Meal Timing</h2></div>
+  <div class="card">
+    <ul class="tick">
+      <li><b>5–6 eating occasions per day</b> — three real meals plus 2–3 shakes/snacks. At 3,500 kcal, spreading it out is the difference between doable and miserable.</li>
+      <li><b>Protein at every occasion:</b> 25–40 g each time spreads muscle-building across the whole day.</li>
+      <li><b>Before training:</b> a carb + protein meal or snack 1–2 hours out. Training on an empty stomach makes dizziness more likely.</li>
+      <li><b>After training:</b> eat within a couple of hours — a full meal is better than a shake if you can get one.</li>
+      <li><b>Rest days matter more than you think.</b> Muscle is built on rest days. Eat the same amount.</li>
+      <li><b>Water:</b> ~3 L/day, more on training days. Dehydration makes lightheadedness worse.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ DINING ============ -->
+<section class="view" id="v-dining">
+  <div class="sec"><span class="bar"></span><h2>WPI Dining Guide</h2></div>
+  <p class="lead">Everything on campus can be turned into a muscle-building meal if you build the plate the same way every time. Menus rotate daily, so treat the specific dishes below as templates, not guarantees.</p>
+
+  <div class="card" style="border-color:rgba(228,41,60,.35)">
+    <h3>The plate formula — use it everywhere</h3>
+    <div class="kv"><span>1. Big protein</span><b>2 servings, always</b></div>
+    <div class="kv"><span>2. Big carb</span><b>Double scoop</b></div>
+    <div class="kv"><span>3. Small veggies</span><b>One small side</b></div>
+    <div class="kv"><span>4. Calorie booster</span><b>Cheese / sauce / oil / extra rice</b></div>
+    <div class="kv"><span>5. Drink</span><b>Milk, not water, at meals</b></div>
+    <p style="margin:14px 0 0;font-size:14px;color:var(--mut)">Chicken thighs, beef, pork, eggs, Korean BBQ chicken, deli meat → then rice, pasta, fries, potatoes, bread → then a small vegetable side → then the booster. Veggies fill you up fast, which is why they go <em>last</em> and stay small while you're gaining.</p>
+  </div>
+
+  <div class="loc">
+    <div class="lh"><b>Morgan Dining Hall</b><span class="pill">All-you-care-to-eat</span></div>
+    <div class="lb">
+      <p>Your highest-value location by far — unlimited refills mean you can hit 900–1,200 kcal in one sitting without paying more. This is where you make up a calorie deficit.</p>
+      <p><b style="color:var(--tx)">Breakfast:</b> 3-egg omelet with cheese + home potatoes + 2 slices toast with butter + 12 oz whole milk + a bowl of oatmeal with honey and peanut butter.</p>
+      <p><b style="color:var(--tx)">Lunch:</b> Grill or deli station — double-meat sandwich with cheese and mayo, a side of fries or pasta, plus a bowl of soup. Milk to drink.</p>
+      <p><b style="color:var(--tx)">Dinner:</b> Two chicken thighs (or beef/pork entrée) + two scoops of rice or pasta with sauce + small vegetable + roll with butter. Dessert if you're short on calories.</p>
+      <p><b style="color:var(--tx)">Always:</b> go back for a second plate of protein and carbs, and take two hard-boiled eggs, a banana and a milk carton back to the dorm for later.</p>
+    </div>
+  </div>
+
+  <div class="loc">
+    <div class="lh"><b>Campus Center Food Court</b><span class="pill">Between classes</span></div>
+    <div class="lb">
+      <p>Grill/deli/pizza-style options with quick service. Best used when you have 20 minutes and need real calories, not a snack.</p>
+      <p><b style="color:var(--tx)">Build it:</b> burger or grilled chicken sandwich (ask for a double patty / extra chicken if offered) + fries + a milk or chocolate milk. Two slices of pizza plus a protein item beats one slice alone.</p>
+      <p><b style="color:var(--tx)">Skip:</b> a plain salad as a meal, or soda in place of milk — both cost you either calories or protein.</p>
+    </div>
+  </div>
+
+  <div class="loc">
+    <div class="lh"><b>Chick-N-Bap</b><span class="pill">Rice bowls · burritos</span></div>
+    <div class="lb">
+      <p>Korean BBQ chicken rice bowls and burritos — one of the most efficient protein-plus-carb meals on campus.</p>
+      <p><b style="color:var(--tx)">Order:</b> Korean BBQ chicken rice bowl with <b>double protein</b> and extra rice, normal sauce, a small amount of veggies. If you have a training session later, add a drink with calories.</p>
+      <p><b style="color:var(--tx)">Estimate:</b> a double-protein bowl with extra rice lands roughly in the 800–1,000 kcal, 50–60 g protein range — a full "meal 3" from the example day.</p>
+    </div>
+  </div>
+
+  <div class="loc">
+    <div class="lh"><b>The Halal Shack</b><span class="pill">Bowls · naan rolls</span></div>
+    <div class="lb">
+      <p>Chicken or beef over rice, or wrapped in naan. Same rules as Chick-N-Bap.</p>
+      <p><b style="color:var(--tx)">Order:</b> chicken <em>and</em> beef (double protein) over yellow rice, add extra rice, white sauce, light on the salad. Naan roll version works too but usually carries less rice — add a side if so.</p>
+      <p><b style="color:var(--tx)">Tip:</b> ask for sauce on the side and add it all — sauces are cheap, dense calories that make big meals easy to finish.</p>
+    </div>
+  </div>
+
+  <div class="loc">
+    <div class="lh"><b>Starbucks / Dunkin' / convenience spots</b><span class="pill">Top-ups</span></div>
+    <div class="lb">
+      <p>Not meals — calorie top-ups for days you're behind.</p>
+      <ul style="margin:0;padding-left:18px">
+        <li>Whole-milk latte or a blended drink instead of black coffee (+150–350 kcal)</li>
+        <li>Bagel with cream cheese, breakfast sandwich (+350–500 kcal)</li>
+        <li>Convenience shelves: whole milk, chocolate milk, Greek yogurt, trail mix, nut butter packs, protein shakes, cereal, peanut butter jars for the dorm</li>
+      </ul>
+      <p style="margin-top:10px"><b style="color:var(--tx)">Caffeine rule:</b> keep it low and early. Late caffeine costs you sleep, and sleep is where the muscle actually gets built — see Safety &amp; Recovery.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Three habits that do most of the work</h3>
+    <ul class="tick ok">
+      <li><b>Double the protein and the carbs at Morgan.</b> Every time. It costs nothing extra.</li>
+      <li><b>Take food to go.</b> Eggs, bananas, milk, cereal — a dorm stash means you never skip an eating occasion because of a lab or a problem set.</li>
+      <li><b>Never skip a meal because you're not hungry.</b> Not hungry = drink a shake instead. Missing 700 kcal once a week erases most of a week's gain.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SAFETY ============ -->
+<section class="view" id="v-safety">
+  <div class="sec"><span class="bar"></span><h2>Safety &amp; Recovery</h2></div>
+  <div class="note bad"><b>Read this first.</b> Dizziness with repeated head movement and knee pain both deserve an actual medical evaluation — they're not things to "train around" forever. Get seen by a doctor, athletic trainer, or physical therapist. Everything below is how to train sensibly in the meantime, not a diagnosis or treatment.</div>
+
+  <div class="sec"><span class="bar"></span><h2>Avoid Or Modify — Dizziness</h2></div>
+  <div class="card">
+    <p class="lead" style="margin-bottom:10px">The trigger is <b>repeated head movement</b>, so the plan removes the positions that force it.</p>
+    <h4>Avoid</h4>
+    <ul class="tick no">
+      <li>Repeated lying-down-to-standing-up transitions between sets</li>
+      <li>Bent-over rows, deadlifts, or good mornings with the head hanging</li>
+      <li>Any inverted or head-below-heart position (decline benches, hanging, inversion)</li>
+      <li>Burpees, mountain climbers, jump training, fast sit-ups / crunch repetitions</li>
+      <li>Fast overhead-to-floor movements, kettlebell swings, sprint intervals</li>
+      <li>Looking up and down repeatedly to check the mirror or your phone mid-set</li>
+    </ul>
+    <h4 style="margin-top:14px">Do instead</h4>
+    <ul class="tick ok">
+      <li>Seated, back-supported machines with the head still and eyes forward on one fixed point</li>
+      <li>Stay in one position for the whole set, then rise slowly over 3–5 seconds</li>
+      <li>Rest sitting up, not lying flat — then stand and pause before walking</li>
+      <li>Set up equipment <em>before</em> the set so you're not bending down repeatedly</li>
+      <li>Eat and drink before training; low fuel and dehydration make it worse</li>
+      <li>Train with a friend, or at least where staff can see you, until this is sorted out</li>
+    </ul>
+    <div class="note" style="margin-top:12px"><b>About the ab work.</b> This is why the Core Block contains no sit-ups, floor crunches, V-ups or Russian twists — every one of them moves your head up and down or side to side dozens of times per set, which is precisely your trigger. Knee raises, the seated machine crunch, the Pallof press, planks and dead bugs all keep your head either upright and still or resting on a mat, and they build abs better than sit-ups anyway.</div>
+    <div class="note warn" style="margin-top:12px"><b>If the room starts to spin:</b> stop, sit or hold a stable frame, keep your eyes on one fixed point, breathe, and don't stand until it fully passes. End the session. Don't drive.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Avoid Or Modify — Knees</h2></div>
+  <div class="card">
+    <h4>Avoid</h4>
+    <ul class="tick no">
+      <li>Heavy barbell back squats and front squats</li>
+      <li>Walking lunges, reverse lunges, Bulgarian split squats, step-ups</li>
+      <li>Jump squats, box jumps, plyometrics, running, stairs for cardio</li>
+      <li>Deep leg press below a pain-free depth, or knees caving inward</li>
+      <li>Heavy, jerky leg extensions at very short/locked-out angles</li>
+      <li>Letting the knee travel far past the toes under load</li>
+    </ul>
+    <h4 style="margin-top:14px">Do instead</h4>
+    <ul class="tick ok">
+      <li>Leg press with a <b>mid-to-high foot placement</b> and controlled, partial depth</li>
+      <li>Machine leg extensions and leg curls with moderate weight and slow tempo</li>
+      <li>Supported hip thrusts / glute bridges — strong glutes take load off the knee</li>
+      <li>Calf raises, which are essentially knee-neutral</li>
+      <li>Only pain-free ranges — shorten the range before you reduce the effort</li>
+      <li>Low-impact cardio only: stationary bike (seat high enough) or elliptical</li>
+    </ul>
+    <div class="note warn" style="margin-top:12px">Mild muscle soreness in the days after training is normal. Sharp pain <em>inside</em> the joint, pain that gets worse set after set, or pain that lingers into the next day is not — reduce the range, reduce the load, or drop the exercise.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Stop And Get Checked If…</h2></div>
+  <div class="card">
+    <ul class="tick">
+      <li>You faint, nearly faint, or have dizziness that doesn't clear within a few minutes of resting</li>
+      <li>Dizziness comes with a headache, vision changes, ringing ears, slurred speech, or numbness</li>
+      <li>Chest pain or pressure, unusual shortness of breath, or a racing/irregular heartbeat</li>
+      <li>A knee swells, locks, catches, or gives way</li>
+      <li>Any joint pain that persists more than a few days, or any sudden sharp pain during a lift</li>
+      <li>You feel faint every time you stand up — mention it, along with your calorie intake and blood pressure, to the doctor</li>
+    </ul>
+    <div class="note">On campus: WPI Health Services for medical evaluation. If something is severe or sudden — fainting, chest pain, neurological symptoms — that's an emergency, not a wait-and-see.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Recovery</h2></div>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Sleep — the real supplement</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">Target <b style="color:var(--tx)">8–9 hours</b> a night. At 17 you're still growing; sleep is when growth hormone, recovery, and appetite regulation happen. Consistent bed and wake times beat catching up on weekends. Under-sleeping also makes dizziness and poor lifts far more likely.</p>
+    </div>
+    <div class="card">
+      <h4>Cardio</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">Low impact only and limited while gaining: <b style="color:var(--tx)">10–20 min, 2–3×/week</b> on a bike or elliptical, easy pace. Walking is unlimited and good for you. No running, stairs, or intervals — both the knees and the head-movement issue say no.</p>
+    </div>
+    <div class="card">
+      <h4>Warm-up (every session)</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">5 min easy bike/elliptical → arm circles, shoulder rolls, band pull-aparts, easy hip openers (all standing or seated, head steady) → 1–2 light sets of the day's first exercise at ~50% of your working weight.</p>
+    </div>
+    <div class="card">
+      <h4>Optional mobility</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">After training or on rest days: chest doorway stretch, lat stretch, seated hamstring and calf stretch, gentle hip flexor stretch. 20–30 seconds each, no bouncing, nothing that provokes the knee or requires head-down positions.</p>
+    </div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Signs Of Overtraining</h2></div>
+  <div class="card">
+    <ul class="tick">
+      <li>Lifts going backwards for 2+ weeks despite eating enough</li>
+      <li>Constantly sore, joints aching, or soreness lasting 4+ days</li>
+      <li>Trouble sleeping despite feeling exhausted; resting heart rate up</li>
+      <li>Losing appetite, losing weight without trying</li>
+      <li>Getting sick repeatedly, irritable, unmotivated to train</li>
+      <li>Dizziness happening more often than usual</li>
+    </ul>
+    <div class="note ok">The fix is almost never "push harder." Take 3–5 days easy or run a deload week, sleep more, eat more — then come back and usually hit personal bests.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Supplements At 17</h2></div>
+  <div class="note warn">Talk to a parent/guardian and ideally a doctor or dietitian before starting anything. Supplements are worth maybe 5% of your results — food, sleep and consistent training are the other 95%.</div>
+  <div class="card">
+    <div class="kv"><span><b>Creatine monohydrate</b><br><small style="color:var(--dim)">3–5 g/day, any time, with water. No loading phase needed. Take it daily including rest days.</small></span><b class="chip ok">Well studied</b></div>
+    <div class="kv"><span><b>Protein powder</b><br><small style="color:var(--dim)">Whey or a blend, purely for convenience when hitting 170–190 g from food is hard. Food first.</small></span><b class="chip ok">Convenience</b></div>
+    <div class="kv"><span><b>Multivitamin</b><br><small style="color:var(--dim)">Optional insurance if fruits and vegetables are thin some weeks. Not a substitute for eating them.</small></span><b class="chip">Optional</b></div>
+    <div class="kv"><span><b>Caffeine / pre-workout</b><br><small style="color:var(--dim)">Low dose only (~100 mg), early in the day, with parent/guardian awareness. Never late — it costs sleep. Many pre-workouts are overdosed and are a bad idea at 17.</small></span><b class="chip warn">Careful</b></div>
+    <div class="kv"><span><b>Everything else</b><br><small style="color:var(--dim)">Fat burners, testosterone boosters, SARMs, prohormones, anabolic steroids, "research compounds" — avoid entirely. Unsafe, often unregulated, and genuinely harmful at your age.</small></span><b class="chip acc">Avoid</b></div>
+    <p style="margin:14px 0 0;font-size:13.5px;color:var(--dim)">If you have any medical condition or take any medication — including whatever ends up explaining the dizziness — clear supplements with a doctor first.</p>
+  </div>
+</section>
+
+<!-- ============ PROGRESSION + TRACKING ============ -->
+<section class="view" id="v-progress">
+  <div class="sec"><span class="bar"></span><h2>Progressive Overload</h2></div>
+  <p class="lead">One rule decides whether you grow: the work has to get harder over time. Same weight, same reps, forever = same body, forever.</p>
+
+  <div class="card" style="border-color:rgba(228,41,60,.35)">
+    <h3>Double progression — the only method you need</h3>
+    <ol style="color:var(--mut);font-size:14.5px;margin-bottom:0">
+      <li>Pick a weight you can do for the <b style="color:var(--tx)">bottom</b> of the rep range with good form.</li>
+      <li>Stay at that weight and add reps session by session until you hit the <b style="color:var(--tx)">top</b> of the range on all sets, with good form.</li>
+      <li>Next session, add the <b style="color:var(--tx)">smallest increment available</b> (5 lb on a machine stack, 2.5–5 lb per dumbbell). Your reps will drop back toward the bottom of the range.</li>
+      <li>Repeat. Forever.</li>
+    </ol>
+  </div>
+
+  <div class="card scroll-x">
+    <h3>What that looks like — chest press, 4 × 8–12</h3>
+    <table>
+      <tr><th>Session</th><th>Weight</th><th>Reps</th><th>Decision</th></tr>
+      <tr><td>1</td><td>90 lb</td><td>10, 9, 8, 8</td><td>Stay — add reps</td></tr>
+      <tr><td>2</td><td>90 lb</td><td>11, 10, 10, 9</td><td>Stay</td></tr>
+      <tr><td>3</td><td>90 lb</td><td>12, 12, 11, 10</td><td>Stay — almost</td></tr>
+      <tr><td>4</td><td>90 lb</td><td>12, 12, 12, 12</td><td><b style="color:var(--ok)">Top of range → add weight</b></td></tr>
+      <tr><td>5</td><td>100 lb</td><td>9, 8, 8, 7</td><td>Stay — build back up</td></tr>
+    </table>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>If you miss the bottom of the range</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">Stay at the same weight next session, or drop it by <b style="color:var(--tx)">5–10%</b> and rebuild. Missing reps once means you were tired; missing them two sessions in a row means the weight is too heavy or you're under-recovered.</p>
+    </div>
+    <div class="card">
+      <h4>Reps in reserve (RIR)</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">Train <b style="color:var(--tx)">1–3 reps from failure</b> on most sets. Push the last set of an isolation exercise (curls, pushdowns, raises) closer to failure — never on a press where the weight could pin you.</p>
+    </div>
+    <div class="card">
+      <h4>Deload every 6–8 weeks</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0">Or sooner if you're beat up. For one week: keep the same exercises, cut sets roughly in half and use ~60–70% of your normal weights. You come back stronger — this is part of the plan, not a break from it.</p>
+    </div>
+    <div class="card">
+      <h4>Realistic timeline</h4>
+      <p style="font-size:14px;color:var(--mut);margin:0"><b style="color:var(--tx)">4–8 weeks:</b> strength climbing fast, some early size, clothes fitting differently.<br><b style="color:var(--tx)">8–12+ weeks:</b> visible change in chest, shoulders and arms — <em>with</em> consistency and a real calorie surplus. Nothing happens without both.</p>
+    </div>
+  </div>
+
+  <div class="note">Progress isn't only weight on the bar. More reps, better control, deeper pain-free range, less rest needed, an extra set — all of it counts as overload.</div>
+
+  <div class="sec"><span class="bar"></span><h2>Adding Size Faster (Safely)</h2></div>
+  <p class="lead">Once the four days feel routine — roughly week 5 onward — these are the levers, in the order worth pulling. Add <b>one</b> at a time and give it three weeks before adding another.</p>
+  <div class="card">
+    <ul class="tick">
+      <li><b>1. Eat the surplus first.</b> More sets on top of not enough food just digs a hole. If your weekly average is not climbing 0.5–0.75 lb, fix the food before touching the training.</li>
+      <li><b>2. Add a set to the first exercise of each day.</b> Chest press to 5 sets, cable row to 4, leg press to 4, shoulder press to 4. That is the highest-value extra work in the whole plan.</li>
+      <li><b>3. Add a set to one arm exercise per day.</b> Arms recover fast and you are training them twice a week — they can handle it.</li>
+      <li><b>4. Rest-pause the last set of arms and delts.</b> Take the final set to 1–2 reps from failure, rest 15 seconds sitting still, then squeeze out 3–5 more reps. Use it on pushdowns, curls and lateral raises only — never on a press.</li>
+      <li><b>5. Add the optional exercises.</b> The "optional" items on Day 1, 2 and 4 stop being optional once you have the energy and the food to support them.</li>
+      <li><b>Do not add a 5th training day.</b> Four hard days plus the core block plus 8–9 hours of sleep beats five rushed days, and a fifth day is the fastest way to make the dizziness and the knee worse.</li>
+    </ul>
+    <div class="note warn">If two lifts stall at once, sleep drops, or the dizziness shows up more often, you added too much. Go back to the previous volume for two weeks — that is information, not failure.</div>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Abs — What The Timeline Really Looks Like</h2></div>
+  <div class="card">
+    <div class="kv"><span>Weeks 1–3</span><b>Learning the movements, sore abs, no visible change</b></div>
+    <div class="kv"><span>Weeks 4–8</span><b>Core noticeably stronger, planks and knee raises jump</b></div>
+    <div class="kv"><span>Weeks 8–16</span><b>Upper abs start showing at rest if the waist held steady</b></div>
+    <div class="kv"><span>6–12 months</span><b>Thicker, blockier abs — this is where added weight pays off</b></div>
+    <p style="margin:14px 0 0;font-size:14px;color:var(--mut)">Two things break this timeline: skipping the weighted progression (staying at bodyweight reps forever), and letting the surplus run so the waist grows. Nothing else on this page matters as much as those two.</p>
+  </div>
+
+  <div class="sec"><span class="bar"></span><h2>Tracking</h2></div>
+  <p class="lead">If you don't write it down, you'll guess — and guessing is how people run the same weights for a year. Everything below saves in this browser on this device.</p>
+
+  <div class="card">
+    <h3>Body weight</h3>
+    <div class="trk-in">
+      <input type="number" id="w-in" step="0.1" placeholder="166.5" inputmode="decimal">
+      <button class="btn pri" id="w-add">Log today</button>
+    </div>
+    <div class="chips">
+      <span class="chip" id="w-latest">Latest: —</span>
+      <span class="chip ok" id="w-avg">7-day avg: —</span>
+      <span class="chip info" id="w-trend">Weekly change: —</span>
+    </div>
+    <svg class="spark" id="spark" viewBox="0 0 320 110" preserveAspectRatio="none">
+      <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(228,41,60,.35)"/><stop offset="100%" stop-color="rgba(228,41,60,0)"/>
+      </linearGradient></defs>
+    </svg>
+    <div id="spark-empty" style="text-align:center;color:var(--dim);font-size:13px;padding:26px 10px 22px">Log at least 2 days to see your weight trend.</div>
+    <div class="wlist" id="w-list"></div>
+  </div>
+
+  <div class="card">
+    <h3>What to track — and how often</h3>
+    <div class="kv"><span><b>Scale weight</b><br><small style="color:var(--dim)">Same time every morning, after bathroom, before food</small></span><b>4–7×/week</b></div>
+    <div class="kv"><span><b>Weekly average weight</b><br><small style="color:var(--dim)">The only number that tells the truth — target +0.5–0.75 lb</small></span><b>Weekly</b></div>
+    <div class="kv"><span><b>Lifts: weight × reps × sets</b><br><small style="color:var(--dim)">Log it inside each exercise on the workout pages</small></span><b>Every set</b></div>
+    <div class="kv"><span><b>Photos</b><br><small style="color:var(--dim)">Front, side, back · same spot, same light, same time of day</small></span><b>Monthly</b></div>
+    <div class="kv"><span><b>Measurements</b><br><small style="color:var(--dim)">Chest, upper arm (flexed), shoulders, waist — waist at the belly button, relaxed, not sucked in</small></span><b>Every 2 weeks</b></div>
+    <div class="kv"><span><b>Chest-minus-waist gap</b><br><small style="color:var(--dim)">The number that tracks "big with abs" better than weight does — it should grow every month</small></span><b>Every 2 weeks</b></div>
+    <div class="kv"><span><b>Sleep &amp; how you feel</b><br><small style="color:var(--dim)">One line: hours slept, energy, any dizziness or knee pain</small></span><b>Daily</b></div>
+    <div class="note ok" style="margin-top:14px">Waist growing much faster than chest and arms = surplus too big. Waist steady while lifts climb = exactly right. This one comparison is the single best abs-and-size dashboard you have — better than the mirror, which lies depending on lighting and how recently you ate.</div>
+  </div>
+
+  <div class="card">
+    <h3>Measurements log</h3>
+    <div class="grid g2" style="gap:8px">
+      <label style="font-size:13px;color:var(--mut)">Chest (in)<input class="m-in" data-m="chest" type="number" step="0.1" style="width:100%;margin-top:4px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:9px 10px;font:600 14px var(--ff)"></label>
+      <label style="font-size:13px;color:var(--mut)">Arm flexed (in)<input class="m-in" data-m="arm" type="number" step="0.1" style="width:100%;margin-top:4px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:9px 10px;font:600 14px var(--ff)"></label>
+      <label style="font-size:13px;color:var(--mut)">Shoulders (in)<input class="m-in" data-m="sh" type="number" step="0.1" style="width:100%;margin-top:4px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:9px 10px;font:600 14px var(--ff)"></label>
+      <label style="font-size:13px;color:var(--mut)">Waist (in)<input class="m-in" data-m="waist" type="number" step="0.1" style="width:100%;margin-top:4px;background:var(--surf2);border:1px solid var(--line2);border-radius:10px;color:var(--tx);padding:9px 10px;font:600 14px var(--ff)"></label>
+    </div>
+    <button class="btn full" id="m-save" style="margin-top:12px">Save measurements</button>
+    <div id="m-list" style="margin-top:12px;font-size:13.5px;color:var(--mut)"></div>
+  </div>
+
+  <div class="card">
+    <h3>Your data</h3>
+    <p class="lead" style="font-size:13.5px">Saved only in this browser. Export a copy before clearing your browser data or switching devices.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn sm" id="ex-data">Export JSON</button>
+      <button class="btn sm" id="clr-data">Clear all data</button>
+    </div>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<nav class="bot" id="botnav"></nav>
+
+<div class="modal" id="modal">
+  <div class="bd" data-close></div>
+  <div class="sheet" id="sheet">
+    <div class="grab"></div>
+    <div class="sheet-head">
+      <div><h3 id="m-title">Exercise</h3><div style="font-size:12.5px;color:var(--dim)" id="m-sub"></div></div>
+      <button class="x" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="sheet-in" id="m-body"></div>
+  </div>
+</div>
+
+<div class="foot">
+  WPI Muscle Building Program · built for a 17-year-old, 6'0", 166–167 lb trainee<br>
+  Educational information only — not medical advice. Get the dizziness and knee issues evaluated by a healthcare professional.
+</div>
+
+<script>
+/* =========================================================
+   WPI MUSCLE BUILDING PROGRAM
+   Single-file app. Data → render → state (localStorage).
+   ========================================================= */
+
+/* ---------- 1. EXERCISE DATA ---------- */
+const RULES = {
+  rest: `90–180 s between sets (longer on presses, shorter on arms)`,
+  rir: `Leave 1–3 reps in reserve on most sets`,
+  warm: `5 min light cardio (bike or elliptical) → dynamic shoulder/hip mobility → 1–2 light sets of the first exercise`
+};
+
+const DAYS = [
+{
+  id:`d1`, n:`Chest + Triceps`, tag:`Day 1`, sub:`Chest press, incline, flyes, triceps · 5–6 exercises`,
+  ex:[
+  {
+    id:`d1e1`, n:`Seated Machine Chest Press`, sr:`4 sets × 8–12 reps`, rest:`90–180 s`, anim:`press`,
+    q:`seated machine chest press proper form`,
+    mus:`Chest (pectoralis major), front deltoids, triceps`,
+    beg:`This is your main chest builder and the reason chest grows on this program. Fully seated with your back and head against the pad, so it is also the safest option for the dizziness. Start light enough to own all 4 sets.`,
+    steps:[
+      `Set the seat height so the handles line up with the middle of your chest — roughly nipple height, not up at your collarbones.`,
+      `Sit back with your whole spine and the back of your head against the pad. Feet flat, eyes forward on one fixed point.`,
+      `Grip the handles, keep your elbows at about a 45–60° angle from your torso (not flared straight out to the sides).`,
+      `Press the handles forward and slightly together over 1–2 seconds until your arms are almost straight — do not slam the elbows into lockout.`,
+      `Lower over 2–3 seconds until your hands are level with your chest and you feel a stretch, then press again without resting the stack.`
+    ],
+    cues:[`Shoulder blades pulled back and down into the pad the entire set`,`Chest up, ribs down — do not let your shoulders roll forward at the bottom`,`Push through the base of your palm, wrists straight`,`Keep your head still against the pad from first rep to last`,`Breathe out as you press, in as you lower`],
+    prog:`When you get 12 good reps on all 4 sets, add the smallest increment on the stack next session. If you drop below 8 reps, stay there and build back up.`,
+    knee:`No knee involvement. Just keep both feet flat on the floor or footrest — do not brace by pushing hard through the legs.`,
+    diz:`Fully seated and head-supported, which is exactly what you want. Set the seat and pin the weight before you sit down so you are not bending up and down. After the last rep, sit still for 5–10 seconds, then stand slowly.`
+  },
+  {
+    id:`d1e2`, n:`Incline Dumbbell or Machine Press`, sr:`3 sets × 8–12 reps`, rest:`90–180 s`, anim:`incline`,
+    q:`incline dumbbell press proper form`,
+    mus:`Upper chest (clavicular pecs), front deltoids, triceps`,
+    beg:`Upper chest is what makes a chest look full from the front and fills out a shirt at the collar. Use the machine version if getting dumbbells into position feels awkward or makes you lightheaded.`,
+    steps:[
+      `Set the bench to about 30–45°. Steeper than that turns it into a shoulder press.`,
+      `Sit down with the dumbbells resting on your thighs, then lie back keeping your head on the pad — one smooth movement, not repeated up-and-down.`,
+      `Start with the dumbbells just outside your shoulders, palms facing forward, elbows at roughly 45° from your body.`,
+      `Press up and slightly inward until your arms are nearly straight, keeping the dumbbells over your upper chest, not your face.`,
+      `Lower under control for 2–3 seconds to chest level, feel the stretch, and press again.`
+    ],
+    cues:[`Head stays flat on the pad — never lift it to look at the weights`,`Shoulder blades pinned back; do not let the shoulders shrug up toward your ears`,`Wrists stacked straight over the elbows`,`Do not clank the dumbbells together at the top — stop just short`,`Finish the set by setting the dumbbells on your thighs, then sit up slowly`],
+    prog:`Dumbbells jump 5 lb per hand, which is a big step at this weight — so live at the top of the rep range for a session or two before moving up. Machine version: smallest pin increment.`,
+    knee:`No knee load. Getting up from an incline bench with dumbbells should be a controlled hip hinge, not a deep squat off the bench.`,
+    diz:`This is the one lie-back position in the program. Do the lie-back once at the start and the sit-up once at the end — never between reps. If lying back at all triggers symptoms, use the incline machine press instead and stay upright.`
+  },
+  {
+    id:`d1e3`, n:`Seated Cable Fly or Pec Deck`, sr:`3 sets × 10–15 reps`, rest:`90–120 s`, anim:`fly`,
+    q:`pec deck machine proper form`,
+    mus:`Chest (pectoralis major), front deltoids as assistance`,
+    beg:`A press pushes; a fly hugs. This isolates the chest without the triceps giving out first, and the stretch at the outside is where a lot of chest growth comes from. Go lighter than you think and feel it.`,
+    steps:[
+      `Set the seat so the handles are at about chest height with your back flat against the pad.`,
+      `Take both handles with a slight, fixed bend in your elbows — that bend never changes during the set.`,
+      `Bring your hands together in front of your chest in a wide arc, like hugging a barrel, and squeeze for a full second.`,
+      `Open back out slowly over 2–3 seconds until you feel a stretch across the chest — stop before your hands go far behind your shoulders.`,
+      `Keep the tension constant; do not let the weight stack touch down between reps.`
+    ],
+    cues:[`Elbows stay slightly bent and fixed — straight arms strain the elbow joint`,`Squeeze the chest, do not just move the handles`,`Shoulders stay back and down, chest tall`,`Do not overstretch — the shoulder joint is the limit, not the pec`,`Slow negative; this exercise is about control, not weight`],
+    prog:`Push toward 15 reps with a hard squeeze, then add the smallest increment. This is a good exercise to also progress by slowing down the negative rather than adding weight.`,
+    knee:`No knee involvement — feet flat and relaxed.`,
+    diz:`Seated with back support and the head steady. Set both handles before you begin so you are not reaching and turning your head mid-set.`
+  },
+  {
+    id:`d1e4`, n:`Triceps Pushdown (cable)`, sr:`3–4 sets × 10–15 reps`, rest:`60–120 s`, anim:`pushdown`,
+    q:`cable triceps pushdown proper form`,
+    mus:`Triceps (all three heads, lateral head especially)`,
+    beg:`Triceps are about two-thirds of your arm — if you want arms, this matters more than curls. It is standing but completely still, with your head fixed straight ahead.`,
+    steps:[
+      `Set the cable at upper-chest to head height with a straight bar or rope attachment.`,
+      `Stand tall a step back from the machine, feet about hip width, a soft bend in the knees, torso upright with a slight lean forward.`,
+      `Bring your elbows to your sides and pin them there — they are hinges, they do not move forward or back.`,
+      `Push the bar down until your arms are fully straight, squeeze the triceps for a beat.`,
+      `Let it come back up under control until your forearms are just past parallel to the floor, then push again.`
+    ],
+    cues:[`Elbows glued to your ribs the whole set`,`Only the forearms move — no leaning in to push the weight down`,`Keep wrists straight and neutral`,`Full lockout with a squeeze; that is where the triceps actually work hardest`,`Eyes forward on one fixed point, head still`],
+    prog:`Top of the rep range on all sets with the elbows staying pinned → add the smallest increment. If the body starts swaying to move the weight, it is too heavy.`,
+    knee:`Standing, but with no bending or loading — knees stay soft and still. If standing still is uncomfortable, use a seated triceps press machine instead.`,
+    diz:`Standing but stationary with the head level. Do not lean forward and look down at the floor. Set the pin and the attachment height before you start.`
+  },
+  {
+    id:`d1e5`, n:`Seated Overhead Triceps Extension`, sr:`3 sets × 10–15 reps`, rest:`60–120 s`, anim:`ohext`,
+    q:`seated overhead dumbbell triceps extension form`,
+    mus:`Triceps (long head especially — the part that adds thickness)`,
+    beg:`The overhead position stretches the long head of the triceps, and that stretch is what makes the exercise so effective. One dumbbell held with both hands, or a cable rope, both work.`,
+    steps:[
+      `Sit on a bench with a back support, feet flat, back against the pad.`,
+      `Hold one dumbbell with both hands cupped under the top plate (or hold a rope from a cable behind you), and press it up overhead.`,
+      `Keeping your upper arms vertical and close to your ears, bend the elbows to lower the weight behind your head over 2–3 seconds.`,
+      `Go until you feel a solid stretch in the back of the arms — do not bang the weight against your neck.`,
+      `Press back up to straight arms and squeeze, without letting the elbows flare wide.`
+    ],
+    cues:[`Upper arms stay pointed at the ceiling — only the forearms travel`,`Keep the elbows tucked in, not flared out to the sides`,`Ribs down, do not arch your lower back to help`,`Control the bottom — this is the position where people get careless`,`Head faces forward, chin level, not tilted back to watch the weight`],
+    prog:`Work to 15 reps on all sets, then move up one dumbbell size. Because the jump is large, a set of 15/13/11 after adding weight is completely fine.`,
+    knee:`No knee involvement.`,
+    diz:`Seated with back support. Do not tilt your head back to look up at the dumbbell — keep the chin level and eyes forward. Get the weight into the overhead position in one controlled move, not with a jerk.`
+  },
+  {
+    id:`d1e6`, opt:true, n:`Seated Lateral Raises`, sr:`2 sets × 12–15 reps`, rest:`60–90 s`, anim:`lateral`,
+    q:`seated dumbbell lateral raise proper form`,
+    mus:`Side deltoids (shoulder width)`,
+    beg:`Optional finisher. Side delts are what make shoulders look wide, which makes your waist look smaller. Very light dumbbells — 5 to 15 lb is normal, and ego lifting here just turns it into a shrug.`,
+    steps:[
+      `Sit upright on a bench with a light dumbbell in each hand, arms hanging at your sides, palms facing in.`,
+      `With a slight fixed bend in the elbows, raise both arms out to the sides.`,
+      `Stop when your hands reach shoulder height — no higher.`,
+      `Pause for a beat at the top with the pinky edge slightly higher than the thumb.`,
+      `Lower slowly over 2–3 seconds and stop the weights just short of your thighs to keep tension on.`
+    ],
+    cues:[`Lead with the elbows, not the hands`,`Do not shrug — keep the traps down and relaxed`,`No swinging or bouncing out of the bottom`,`Light weight, strict form, high reps`,`Sit tall with the back supported and head still`],
+    prog:`When 15 clean reps feel easy on both sets, go up one dumbbell size — or keep the weight and add a 1-second pause at the top instead.`,
+    knee:`No knee involvement.`,
+    diz:`Seated, upright, head steady. Pick the dumbbells up from a rack at waist height rather than off the floor if bending down is a problem.`
+  }]
+},
+{
+  id:`d2`, n:`Back + Biceps`, tag:`Day 2`, sub:`Moderate volume · rows, pulldowns, curls · 5–6 exercises`,
+  ex:[
+  {
+    id:`d2e1`, n:`Seated Cable Row`, sr:`3 sets × 8–12 reps`, rest:`90–180 s`, anim:`row`,
+    q:`seated cable row proper form`,
+    mus:`Mid-back (rhomboids, mid-traps), lats, rear delts, biceps`,
+    beg:`Rows build the thickness of your back and — just as importantly — pull your shoulders back so your chest sits taller. Fully seated and chest-supported by the foot platform, so no head-down position.`,
+    steps:[
+      `Sit with your feet planted on the platform, knees slightly bent and stationary — do not bounce them.`,
+      `Sit up tall, chest lifted, spine neutral. Grab the handle with arms extended but shoulders not yanked forward.`,
+      `Pull the handle to your lower ribs / upper stomach, driving your elbows straight back past your sides.`,
+      `Squeeze the shoulder blades together for a full second at the end of the pull.`,
+      `Let the handle travel back out over 2–3 seconds until the arms are straight, keeping your torso upright the whole time.`
+    ],
+    cues:[`Torso stays close to vertical — no rocking backwards and forwards`,`Pull with the elbows, think of the hands as hooks`,`Shoulders down, away from the ears`,`Chest stays proud; do not round the upper back at the stretch`,`Eyes forward, head level for every rep`],
+    prog:`12 clean reps on all 3 sets with an upright torso → next increment. If you have to lean back 30° to move it, it is too heavy.`,
+    knee:`Keep a soft, fixed bend in the knees. Do not lock them straight, and do not use the legs to drive the movement.`,
+    diz:`Seated, upright, head level. Because the torso stays vertical, there is no head-down phase — this is why it replaces bent-over barbell rows in your program.`
+  },
+  {
+    id:`d2e2`, n:`Lat Pulldown`, sr:`3 sets × 8–12 reps`, rest:`90–180 s`, anim:`pulldown`,
+    q:`lat pulldown proper form`,
+    mus:`Lats (back width), biceps, rear delts, mid-back`,
+    beg:`This is the V-taper builder — wide lats plus a smaller waist is the shape you are after. Locked into the thigh pad, so your body cannot move around.`,
+    steps:[
+      `Set the thigh pad snug so your legs are held down, then sit with your feet flat.`,
+      `Grip the bar slightly wider than shoulder width, palms facing away.`,
+      `Sit tall, lean back only slightly (about 10–15°) and hold that angle for the whole set.`,
+      `Pull the bar down to your upper chest by driving the elbows down and back — not by yanking with the hands.`,
+      `Squeeze, then let the bar rise over 2–3 seconds until your arms are straight and you feel the lats stretch.`
+    ],
+    cues:[`Bar to the chest, never behind the neck`,`Start each rep by pulling the shoulder blades down, then bend the arms`,`Keep the chest up and the ribs facing the bar`,`Do not rock the torso back and forth to generate momentum`,`Head stays neutral, chin level — do not crane the neck up at the bar`],
+    prog:`All 3 sets at 12 reps with a controlled negative → next pin. If your body is swinging, drop 10% and re-earn it.`,
+    knee:`Thigh pad sits on the thighs, not on the knee joint. Adjust it so there is no pressure on or just above the kneecap.`,
+    diz:`Seated and locked in. Set the pad and the pin before sitting. Look straight ahead rather than tracking the bar with your eyes.`
+  },
+  {
+    id:`d2e3`, n:`Chest-Supported or Machine Row`, sr:`2–3 sets × 10–12 reps`, rest:`90–120 s`, anim:`csrow`,
+    q:`chest supported row machine proper form`,
+    mus:`Mid-back, lats, rear delts, biceps`,
+    beg:`The single best row for you: your chest is on a pad, so your lower back and your head position are both taken completely out of the equation. All you do is pull.`,
+    steps:[
+      `Set the chest pad so the handles sit at about mid-chest height when you are seated.`,
+      `Sit or stand into the pad with your chest firmly against it, feet planted, head neutral.`,
+      `Take the handles with arms extended, shoulders relaxed forward at the start.`,
+      `Pull the handles back toward your ribs, elbows travelling close to your sides, chest never leaving the pad.`,
+      `Hold the squeeze for a second, then let the handles return over 2–3 seconds to a full stretch.`
+    ],
+    cues:[`Chest stays glued to the pad — if it lifts off, the weight is too heavy`,`Elbows drive back, not out wide`,`Squeeze the shoulder blades at the end of every rep`,`No jerking at the start of the pull`,`Head rests in a neutral position, eyes forward or slightly down but fixed`],
+    prog:`12 reps on all sets → add the smallest increment. Machines with 10 lb jumps: add the weight and accept dropping to 8–9 reps for a session.`,
+    knee:`Minimal knee involvement. If it is a standing chest-supported machine, keep knees soft and weight evenly on both feet.`,
+    diz:`The best option in the program for head stability — the chest pad and fixed path mean you never change head position under load.`
+  },
+  {
+    id:`d2e4`, n:`Face Pulls`, sr:`2–3 sets × 12–15 reps`, rest:`60–90 s`, anim:`facepull`,
+    q:`cable face pull proper form`,
+    mus:`Rear deltoids, mid/lower traps, rotator cuff (external rotators)`,
+    beg:`This is shoulder insurance. All the pressing you are doing pulls your shoulders forward — face pulls pull them back and keep the joint healthy. Never heavy, always controlled.`,
+    steps:[
+      `Set a rope attachment at roughly face or slightly-above-face height.`,
+      `Grip the rope with both hands, thumbs pointing back toward you, and step back until the cable is taut with arms extended.`,
+      `Stand tall (or sit in a supported position), feet staggered slightly for balance.`,
+      `Pull the rope toward your face, separating your hands as you go so the rope ends up beside your ears, elbows high and wide.`,
+      `Pause and squeeze the rear delts for a full second, then extend the arms slowly back out.`
+    ],
+    cues:[`Elbows stay at or above shoulder height throughout`,`Pull the rope apart, not just backwards`,`Light weight — this is a posture exercise, not a strength contest`,`Do not lean back or use body English`,`Keep the head still and level; do not push the chin forward to meet the rope`],
+    prog:`Increase reps toward 15 with a 1-second hold before adding weight. Adding load here rarely helps and usually just turns it into a bad row.`,
+    knee:`Standing but stationary. Use a staggered but still stance; no lunging position.`,
+    diz:`Head stays fixed while the rope comes to you. If standing is an issue, do the same movement seated on a bench facing the cable, or use a supported rear delt fly machine.`
+  },
+  {
+    id:`d2e5`, n:`Seated Dumbbell or Machine Bicep Curl`, sr:`3 sets × 10–15 reps`, rest:`60–120 s`, anim:`curl`,
+    q:`seated dumbbell bicep curl proper form`,
+    mus:`Biceps (both heads), brachialis, forearms`,
+    beg:`Seated curls stop you from swinging your body to move the weight — which is the number one reason curls stop working. Strict, controlled, full range.`,
+    steps:[
+      `Sit upright on a bench with back support, a dumbbell in each hand hanging at your sides, palms facing forward.`,
+      `Keeping your upper arms locked at your sides, curl both dumbbells up over 1–2 seconds.`,
+      `Squeeze the biceps hard at the top with the pinky side slightly rotated up.`,
+      `Lower over 2–3 seconds all the way until the arms are straight — the bottom half of the curl builds the most size.`,
+      `Do not rest at the bottom; start the next rep from a fully straight but still-tense position.`
+    ],
+    cues:[`Elbows pinned at your sides, not drifting forward`,`Back stays against the pad — no leaning back to heave the weight`,`Full range: all the way down, all the way up`,`Wrists straight, not curling under`,`Slow negatives — biceps grow from the lowering phase`],
+    prog:`15 strict reps on all 3 sets → next dumbbell size, expecting to fall back to 10–11 reps. Alternate: keep the weight and add a 2-second pause halfway down.`,
+    knee:`No knee involvement.`,
+    diz:`Fully seated with back support. Take the dumbbells off a rack rather than the floor when possible.`
+  },
+  {
+    id:`d2e6`, opt:true, n:`Hammer Curls`, sr:`2 sets × 10–12 reps`, rest:`60–90 s`, anim:`hammer`,
+    q:`hammer curl proper form`,
+    mus:`Brachialis, brachioradialis (forearm), biceps`,
+    beg:`Optional. The hammer grip trains the muscle that sits underneath the biceps — building it pushes the biceps up and makes the arm look thicker from the side. Usually you can use a bit more weight than a normal curl.`,
+    steps:[
+      `Sit or stand tall with a dumbbell in each hand, palms facing each other (thumbs up), arms straight down.`,
+      `Keeping the elbows at your sides, curl one or both dumbbells up while keeping the palms facing in the whole time.`,
+      `Bring the weight to about shoulder height and squeeze.`,
+      `Lower over 2–3 seconds to a fully straight arm.`,
+      `Alternate arms or lift both together — just do not swing.`
+    ],
+    cues:[`Palms stay facing each other for the entire rep — no rotation`,`Elbows do not travel forward`,`Torso completely still`,`Control the negative`,`If seated, keep the back against the pad and head steady`],
+    prog:`Top of the range on both sets → up one dumbbell size.`,
+    knee:`No knee involvement.`,
+    diz:`Do it seated if standing feels unsteady after a full back session.`
+  }]
+},
+{
+  id:`d3`, n:`Legs`, tag:`Day 3`, sub:`Knee-friendly · press, machines, hips, calves · 5 exercises`,
+  ex:[
+  {
+    id:`d3e1`, n:`Leg Press`, sr:`3–4 sets × 10–15 reps`, rest:`90–180 s`, anim:`legpress`,
+    q:`leg press proper form knee friendly`,
+    mus:`Quads, glutes, hamstrings, adductors`,
+    beg:`Your squat replacement. Your back is supported, the machine controls the path, and you decide exactly how deep you go — that combination is why this is knee-friendly when a barbell squat is not. Controlled depth and mid-to-high foot placement are not optional details, they are the whole point.`,
+    steps:[
+      `Sit fully back with your hips and lower back flat against the pad — never let the hips curl up off the seat.`,
+      `Place your feet on the platform at shoulder width, in the mid-to-high position (higher on the platform shifts work to glutes and hamstrings and takes stress off the knees).`,
+      `Release the safeties and lower the platform slowly over 2–3 seconds.`,
+      `Stop at the depth where the movement is completely pain free — for many people with knee issues that is around a 90° knee bend, sometimes less. That is your depth. Do not chase more.`,
+      `Press back up through your whole foot, mostly the heels and midfoot, stopping just short of locking the knees out.`
+    ],
+    cues:[`Never lock the knees at the top — keep a soft bend and constant tension`,`Knees track in line with your toes; do not let them cave inward`,`Hips and lower back stay flat on the pad`,`Push through midfoot/heel, not the toes`,`Slow, deliberate reps — no bouncing at the bottom, ever`],
+    prog:`Add reps to the top of the range at your chosen pain-free depth first, then add weight. Never progress by going deeper — depth stays fixed at what is comfortable.`,
+    knee:`This is the exercise that needs the most care. Mid-to-high foot placement, partial and controlled depth, no lockout, no bouncing. Any sharp pain inside the knee: reduce depth first, then reduce load. If it still hurts, skip it and do more hip thrusts and leg curls that day.`,
+    diz:`Semi-reclined and fully supported, and you stay in one position for the whole set. Get in and out of the machine slowly, and sit for a few seconds before standing after the final set — pushing hard while reclined and then standing fast is a classic lightheadedness trigger.`
+  },
+  {
+    id:`d3e2`, n:`Seated Leg Extension`, sr:`3 sets × 12–15 reps`, rest:`60–120 s`, anim:`legext`,
+    q:`seated leg extension machine proper form`,
+    mus:`Quadriceps (all four heads)`,
+    beg:`Moderate load — this is the one machine that can bother sensitive knees if you go heavy. Used correctly with light-to-moderate weight and slow reps, it actually strengthens the quads that support and stabilize the knee.`,
+    steps:[
+      `Adjust the seat so the back of your knees sits right at the edge of the seat, and the pad rests on your lower shins just above the ankles, not on the ankle joint.`,
+      `Sit back against the pad, hold the handles, keep the head neutral.`,
+      `Extend both legs smoothly over 1–2 seconds until they are almost straight — stop just short of a hard lockout.`,
+      `Pause for one second with the quads squeezed.`,
+      `Lower over 2–3 seconds to a comfortable, pain-free start position and go again without letting the stack rest.`
+    ],
+    cues:[`Moderate weight only — this is a shaping and strengthening exercise, not a max-out`,`Never kick or snap the legs straight`,`Stop short of a locked knee`,`Only use the range that is pain free; a partial range done well beats a full range that hurts`,`Back stays against the pad and head steady`],
+    prog:`Progress by reps and by adding a longer pause at the top before you add weight. Weight goes up in the smallest increments available.`,
+    knee:`The highest-risk movement of the day for knees. Keep the load moderate, avoid the last few degrees of lockout, move slowly, and shorten the range if there is any pinching. If it consistently hurts, cut it and add a set of leg press and hip thrusts instead.`,
+    diz:`Seated and supported with the head still.`
+  },
+  {
+    id:`d3e3`, n:`Seated or Lying Leg Curl`, sr:`3–4 sets × 10–15 reps`, rest:`90–120 s`, anim:`legcurl`,
+    q:`seated leg curl machine proper form`,
+    mus:`Hamstrings, calves (assisting)`,
+    beg:`Hamstrings balance out the quads, and strong hamstrings protect the knee joint — this is one of the best things you can do for knee health. Prefer the seated version.`,
+    steps:[
+      `Set the pad so it sits on your lower calf just above the heel, and the seat so the knee joint lines up with the machine pivot.`,
+      `Sit back with the thigh pad locked down over your legs (or lie face down if using the lying version).`,
+      `Curl your heels down and back toward your glutes over 1–2 seconds.`,
+      `Squeeze the hamstrings for a full second at the end of the range.`,
+      `Return slowly over 2–3 seconds until the legs are almost straight, without letting the stack slam.`
+    ],
+    cues:[`Hips stay down — do not lift them to help the weight`,`Squeeze at the bottom of the curl, that is where the hamstring works most`,`Slow, controlled negative`,`Point the toes slightly toward your shins for more hamstring, less calf`,`Keep breathing; do not hold your breath and strain`],
+    prog:`Reach 15 reps on all sets → add the smallest increment. Hamstrings usually respond well to slightly higher reps, so do not rush the weight.`,
+    knee:`Generally very knee-friendly, and strengthening the hamstrings takes shearing stress off the knee. Just make sure the machine pivot lines up with your knee, and avoid the very end range if it pinches.`,
+    diz:`Use the SEATED version. The lying version means getting face down and back up again, which is exactly the kind of head-position change to avoid.`
+  },
+  {
+    id:`d3e4`, n:`Hip Thrust or Glute Bridge (supported)`, sr:`3 sets × 10–15 reps`, rest:`90–120 s`, anim:`hipthrust`,
+    q:`hip thrust proper form`,
+    mus:`Glutes, hamstrings, core`,
+    beg:`Big glute strength with almost no knee bend under load — this is why it is in your program. Strong glutes take work off the knees in everyday life. Use a hip thrust machine if your gym has one; it is easier to get into than a barbell.`,
+    steps:[
+      `Set your upper back / shoulder blades against a bench (or sit into the hip thrust machine) with feet flat on the floor, about shoulder width.`,
+      `Position the feet far enough forward that your shins are roughly vertical at the top of the movement — that keeps the load off the knees.`,
+      `Place the pad and weight across your hips, or set the machine belt/pad snug.`,
+      `Push through your heels and drive your hips up until your body forms a straight line from knees to shoulders.`,
+      `Squeeze the glutes hard for 1–2 seconds at the top, then lower under control without fully resting at the bottom.`
+    ],
+    cues:[`Squeeze glutes at the top — do not arch your lower back to get higher`,`Chin tucked slightly, eyes looking forward-up at a fixed point`,`Shins vertical at the top; adjust foot position if the knees feel loaded`,`Push through the heels`,`Slow down; this is easy to rush`],
+    prog:`Top of the range with a 2-second squeeze → add weight. Bodyweight glute bridge first if you are new, then add load.`,
+    knee:`Very knee-friendly when the feet are placed correctly. If your knees feel it, walk your feet further away from the bench.`,
+    diz:`Use the machine version, or set up on a bench once and stay there for the whole set. Do not do the sit-up-and-lie-back cycle between reps or sets. Between sets, stay seated or stand up slowly once.`
+  },
+  {
+    id:`d3e5`, n:`Seated or Standing Calf Raise`, sr:`3–4 sets × 12–20 reps`, rest:`60–90 s`, anim:`calf`,
+    q:`seated calf raise proper form`,
+    mus:`Calves (gastrocnemius standing, soleus seated)`,
+    beg:`Calves are stubborn and need high reps and a full stretch. The seated version keeps the knee bent and comfortable and is the easiest on your joints — that is the default.`,
+    steps:[
+      `Seated version: sit with the pad on your lower thighs and the balls of your feet on the platform, heels hanging off.`,
+      `Lower your heels as far as comfortable and hold the stretch for one second.`,
+      `Press up onto the balls of your feet as high as you can go.`,
+      `Squeeze at the top for one full second — the top squeeze is where most people cheat.`,
+      `Lower slowly over 2–3 seconds. Repeat for high reps, no bouncing.`
+    ],
+    cues:[`Full range: deep stretch at the bottom, high squeeze at the top`,`Never bounce out of the stretch — that is how Achilles injuries happen`,`Keep the toes pointing straight ahead`,`High reps (12–20) work best here`,`Head and torso stay still`],
+    prog:`Hit 20 reps with full range and a 1-second squeeze on all sets, then add weight and rebuild from 12.`,
+    knee:`Both versions are essentially knee-neutral. If standing, keep a soft knee and do not lock it out.`,
+    diz:`Choose the SEATED calf raise. Standing calf raise machines raise and lower your whole body repeatedly, which is exactly the up-and-down head movement to avoid.`
+  }]
+},
+{
+  id:`d4`, n:`Shoulders + Arms`, tag:`Day 4`, sub:`Delts, triceps, biceps · 6–7 exercises`,
+  ex:[
+  {
+    id:`d4e1`, n:`Seated Dumbbell or Machine Shoulder Press`, sr:`3–4 sets × 8–12 reps`, rest:`90–180 s`, anim:`ohpress`,
+    q:`seated dumbbell shoulder press proper form`,
+    mus:`Front and side deltoids, triceps, upper chest`,
+    beg:`Your main shoulder builder. Always with a back rest — a supported seated press protects the lower back and keeps you stable, which matters given the dizziness. Machine version is completely fine and slightly safer.`,
+    steps:[
+      `Set the bench upright (about 80–90°) and sit with your back and head against the pad.`,
+      `Bring the dumbbells to shoulder height, palms facing forward, elbows slightly in front of your body rather than straight out to the sides.`,
+      `Press up and slightly inward until your arms are nearly straight overhead — stop just short of locking out.`,
+      `Do not let the dumbbells clash at the top.`,
+      `Lower over 2–3 seconds until your hands are at about ear or chin height, then press again.`
+    ],
+    cues:[`Ribs down, do not arch the lower back to press more weight`,`Elbows slightly forward of the torso, not flared straight out`,`Head against the pad, chin level — do not tilt back to watch the dumbbells`,`Wrists stacked over elbows, no bending back`,`Control the descent, do not drop into the bottom`],
+    prog:`12 reps on all sets → next size up. Overhead pressing progresses more slowly than chest pressing; that is normal, not a problem.`,
+    knee:`No knee involvement.`,
+    diz:`Overhead work is the most likely to make you lightheaded, so: sit fully supported, keep the chin level (do not look up), breathe out on the press and never hold your breath, and rest fully between sets. If you feel any spinning, stop the exercise for the day and use a machine version at a lower weight next time.`
+  },
+  {
+    id:`d4e2`, n:`Seated Lateral Raises`, sr:`3 sets × 12–15 reps`, rest:`60–90 s`, anim:`lateral`,
+    q:`seated dumbbell lateral raise proper form`,
+    mus:`Side deltoids`,
+    beg:`Today these are a main exercise, not an optional one. Side delt width is what makes shoulders look broad. Light weight, strict form, high reps — this is the one exercise where going lighter almost always works better.`,
+    steps:[
+      `Sit upright on a bench with back support, light dumbbells hanging at your sides, palms facing in.`,
+      `With a slight fixed bend in the elbows, raise both arms out to the sides.`,
+      `Stop at shoulder height — going higher shifts the work to the traps.`,
+      `Pause a beat at the top, elbows slightly higher than the hands.`,
+      `Lower slowly over 2–3 seconds, stopping just short of your thighs to keep tension on the delts.`
+    ],
+    cues:[`Lead with the elbows`,`No shrugging — keep the traps relaxed and the shoulders down`,`Torso completely still, back against the pad`,`Do not swing the weights up`,`If your form breaks before rep 12, the weight is too heavy`],
+    prog:`When 15 strict reps feel easy across all sets, go up one dumbbell size — or add a 1-second hold at the top and keep the same weight.`,
+    knee:`No knee involvement.`,
+    diz:`Seated and supported, head steady, eyes forward.`
+  },
+  {
+    id:`d4e3`, n:`Face Pulls or Supported Rear Delt Fly`, sr:`3 sets × 12–15 reps`, rest:`60–90 s`, anim:`reardelt`,
+    q:`rear delt fly machine proper form`,
+    mus:`Rear deltoids, mid-traps, rotator cuff`,
+    beg:`Rear delts round out the shoulder from the side and back, and they keep the joint balanced against all your pressing. The chest-supported machine version (reverse pec deck) is the most comfortable and the most stable for you.`,
+    steps:[
+      `Machine version: set the seat so the handles are at shoulder height and sit with your chest against the pad.`,
+      `Take the handles with a slight, fixed bend in the elbows, arms extended in front of you.`,
+      `Sweep the arms out and back in a wide arc, leading with the elbows.`,
+      `Squeeze the rear delts and mid-back for a full second at the end of the range.`,
+      `Return slowly over 2–3 seconds without letting the weight stack touch down.`
+    ],
+    cues:[`Chest stays against the pad`,`Think about pulling with the back of the shoulders, not with the hands`,`Light weight — form beats load here every time`,`Do not shrug the shoulders up as you pull`,`Head neutral and still, eyes forward`],
+    prog:`Build reps to 15 with a 1-second hold, then add the smallest increment.`,
+    knee:`No knee involvement.`,
+    diz:`Chest-supported and seated, so your head never changes position — prefer this over the standing face pull on a heavy shoulder day.`
+  },
+  {
+    id:`d4e4`, n:`Triceps Pushdown or Overhead Extension`, sr:`3 sets × 10–15 reps`, rest:`60–120 s`, anim:`pushdown`,
+    q:`cable triceps pushdown proper form`,
+    mus:`Triceps (all three heads)`,
+    beg:`Pick whichever you did NOT emphasise on Day 1, or just alternate week to week — pushdowns hit the lateral head, overhead extensions hit the long head. Both build the arm.`,
+    steps:[
+      `Pushdown: cable set high, elbows pinned to your sides, push down to a full lockout and squeeze.`,
+      `Overhead: seated with back support, upper arms vertical and close to your ears, lower behind the head for a stretch.`,
+      `Whichever you choose, only the forearms move — the upper arm stays locked in place.`,
+      `Full range every rep, with a hard squeeze at the straight-arm position.`,
+      `Lower over 2–3 seconds and stop just short of resting the stack.`
+    ],
+    cues:[`Elbows do not drift`,`Wrists straight and neutral`,`Squeeze at full extension for one second`,`Torso still — no leaning to push the weight`,`Head level and steady, eyes fixed forward`],
+    prog:`Top of range on all sets with strict elbows → smallest increment up.`,
+    knee:`No knee involvement. If standing for pushdowns, keep the knees soft and still.`,
+    diz:`Both versions keep the head level. Do not tilt your head back on the overhead version.`
+  },
+  {
+    id:`d4e5`, n:`Seated Bicep Curls`, sr:`3 sets × 10–15 reps`, rest:`60–120 s`, anim:`curl`,
+    q:`seated dumbbell bicep curl proper form`,
+    mus:`Biceps, brachialis, forearms`,
+    beg:`Same strict seated curl as Day 2. Two arm sessions a week is exactly why your arms will grow on this program — arms recover fast and respond well to being trained twice weekly.`,
+    steps:[
+      `Sit upright with back support, a dumbbell in each hand, arms straight down, palms forward.`,
+      `Curl both dumbbells up over 1–2 seconds with the elbows pinned at your sides.`,
+      `Squeeze hard at the top.`,
+      `Lower over 2–3 seconds to fully straight arms.`,
+      `Start the next rep without swinging or resting.`
+    ],
+    cues:[`Elbows stay at your sides`,`Back flat against the pad, no leaning`,`Complete range top to bottom`,`Straight wrists`,`Slow negatives`],
+    prog:`15 strict reps on all sets → next dumbbell size. Or keep the weight and add a 2-second pause halfway down each rep.`,
+    knee:`No knee involvement.`,
+    diz:`Fully seated with back support.`
+  },
+  {
+    id:`d4e6`, n:`Hammer Curls or Cable Curls`, sr:`2–3 sets × 10–12 reps`, rest:`60–90 s`, anim:`hammer`,
+    q:`hammer curl proper form`,
+    mus:`Brachialis, forearms, biceps`,
+    beg:`A second curl variation so the arm gets hit from a different angle. Hammer grip for thickness; cable curls if you want constant tension through the whole range.`,
+    steps:[
+      `Hammer: palms facing each other, thumbs up, curl to shoulder height keeping the palms turned in.`,
+      `Cable: stand tall a step from a low pulley, elbows at your sides, curl the bar or rope up.`,
+      `Elbows stay fixed at your sides for either version.`,
+      `Squeeze at the top for a beat.`,
+      `Lower over 2–3 seconds to a fully straight arm.`
+    ],
+    cues:[`No body swing`,`Palms stay facing in on hammer curls the whole rep`,`Full range down`,`Wrists neutral and firm`,`Steady head position, eyes forward`],
+    prog:`Top of the range on all sets → up one increment.`,
+    knee:`No knee involvement; if standing at the cable, stay still with soft knees.`,
+    diz:`Sit for the hammer version if you feel unsteady at the end of the session.`
+  },
+  {
+    id:`d4e7`, opt:true, n:`Light Chest Fly`, sr:`2 sets × 12–15 reps`, rest:`60–90 s`, anim:`fly`,
+    q:`pec deck machine proper form`,
+    mus:`Chest, front deltoids`,
+    beg:`Optional finisher, and a small bonus for the chest emphasis in your program. Keep it genuinely light — this is extra volume, not a second chest day. Skip it if you feel beaten up or short on time.`,
+    steps:[
+      `Set the pec deck or cable fly seat so the handles are at chest height.`,
+      `Sit back against the pad with a slight fixed bend in the elbows.`,
+      `Bring the handles together in a wide hugging arc and squeeze for a second.`,
+      `Open slowly over 2–3 seconds to a comfortable stretch.`,
+      `Keep tension on the whole time — no resting the stack.`
+    ],
+    cues:[`Light weight, strict form`,`Elbow bend stays constant`,`Squeeze the chest at the finish`,`Do not overstretch at the back`,`Back and head against the pad`],
+    prog:`This is a finisher — progress it by adding reps and slowing the negative, not by chasing weight.`,
+    knee:`No knee involvement.`,
+    diz:`Seated with back support, head steady.`
+  }]
+}
+,{
+  id:`core`, addon:true, n:`Abs & Core`, tag:`Core Block`, sub:`Add to the end of any 3 sessions · 10–15 min · weighted`,
+  ex:[
+  {
+    id:`c1`, n:`Supported Knee Raise (captain's chair)`, sr:`3 sets × 10–15 reps`, rest:`60–90 s`, anim:`kneeraise`,
+    q:`captains chair knee raise proper form`,
+    mus:`Lower abs (rectus abdominis), hip flexors, obliques`,
+    beg:`Your best ab exercise, and the safest one for you: your back and forearms are supported, your head stays upright and completely still, and only your legs move. This is the movement that builds the lower part of the six-pack, which is the part most people never develop.`,
+    steps:[
+      `Step into the captain's chair (the padded vertical frame with arm rests) and support your weight on your forearms, back flat against the pad.`,
+      `Let your legs hang straight down, shoulders down away from your ears, head upright and eyes forward.`,
+      `Curl your knees up toward your chest, rolling your pelvis up at the top — do not just lift the thighs.`,
+      `Pause and squeeze the abs for a full second at the top.`,
+      `Lower slowly over 2–3 seconds until your legs hang straight again, without swinging.`
+    ],
+    cues:[`Curl the pelvis up at the top — that is what makes it an ab exercise instead of a hip flexor exercise`,`No swinging or kipping; if you have to swing, do fewer reps`,`Head stays upright and still the entire set — this is why it beats sit-ups for you`,`Shoulders pressed down, do not hang from the traps`,`Breathe out as you curl up`],
+    prog:`Get 15 clean reps on all 3 sets, then progress: bent knees → straight legs → holding a light dumbbell between your feet. Abs grow from added resistance, exactly like every other muscle.`,
+    knee:`Knees stay bent and unloaded — this is knee-safe. If a hanging leg position bothers your knee, keep the knees bent at 90° the whole time rather than straightening the legs.`,
+    diz:`Excellent option for you: upright, supported, head fixed forward, and nothing about the movement changes your head position. Step in and out of the frame slowly.`
+  },
+  {
+    id:`c2`, n:`Seated Machine Crunch or Cable Crunch (seated)`, sr:`3 sets × 10–15 reps`, rest:`60–90 s`, anim:`crunch`,
+    q:`seated ab crunch machine proper form`,
+    mus:`Upper and mid abs (rectus abdominis)`,
+    beg:`This is the exercise that makes abs thick rather than just visible. Because it is loaded on a stack you can add weight over months, which floor crunches can never do. Use the seated ab machine; if your gym only has a cable, do it seated on a bench facing away from a high pulley.`,
+    steps:[
+      `Set the seat so the chest pad or handles sit comfortably at your upper chest, back against the pad.`,
+      `Take the handles and set your feet under the pads or flat on the floor.`,
+      `Crunch by shortening the distance between your ribcage and your hips — think about curling your chest toward your belt, not folding at the hips.`,
+      `Squeeze the abs hard for a full second at the bottom of the crunch.`,
+      `Return slowly over 2–3 seconds to a light stretch, without letting the stack touch down.`
+    ],
+    cues:[`Move your ribs toward your hips — that is the whole movement, and it is short`,`Do not pull with the arms or hip flexors; the arms just hold on`,`Keep the neck relaxed and in line with your torso — never yank the chin toward the chest`,`Slow both directions`,`Exhale hard at the bottom of the crunch to get a stronger contraction`],
+    prog:`Top of the rep range on all 3 sets → add the smallest increment. Over a few months this is the exercise where added weight shows up most clearly as ab thickness.`,
+    knee:`No knee load. Do not use a kneeling cable crunch — kneeling on a hard floor is unnecessary knee pressure when the seated version does the same job.`,
+    diz:`Your head travels a short distance with your torso as one unit, which is much gentler than a sit-up. Keep the range small and controlled, move slowly, and stop for the day if it provokes anything. If it does, replace it with a second set of knee raises and the Pallof press instead — you lose nothing important.`
+  },
+  {
+    id:`c3`, n:`Pallof Press (standing, still)`, sr:`3 sets × 10–12 reps per side`, rest:`45–60 s`, anim:`pallof`,
+    q:`pallof press proper form`,
+    mus:`Obliques, deep core (transverse abdominis), whole trunk`,
+    beg:`This one trains the core to resist rotation instead of creating it — which is what builds a tight, controlled midsection and protects your spine on every press and row. You stand completely still and your head never changes position.`,
+    steps:[
+      `Set a cable at about chest height and stand side-on to the machine, an arm's length away.`,
+      `Hold the handle with both hands at the centre of your chest, feet shoulder width, knees soft, standing tall.`,
+      `Press the handle straight out in front of your chest until your arms are extended — the cable will try to rotate you toward the machine. Do not let it.`,
+      `Hold the extended position for 2–3 seconds, staying square and still.`,
+      `Bring the handle back to your chest under control, complete all reps, then turn around and do the other side.`
+    ],
+    cues:[`The goal is that nothing moves except your arms`,`Squeeze the glutes and brace the abs before the first rep`,`Do not lean away from the machine to make it easier`,`Ribs down, hips square and level`,`Head faces straight ahead, eyes fixed — never turn to look at the cable`],
+    prog:`Add weight when you can hold the extended position for 3 seconds on every rep without shifting. You can also progress by stepping further from the machine.`,
+    knee:`Standing but stationary, knees soft. No bending, no loading through the knee.`,
+    diz:`Standing still with the head fixed forward. Set the cable height before you start so you are not reaching up or bending down repeatedly, and turn to face the other direction slowly between sides.`
+  },
+  {
+    id:`c4`, n:`Weighted Plank`, sr:`3 sets × 20–45 seconds`, rest:`60 s`, anim:`plank`,
+    q:`plank proper form`,
+    mus:`Whole core, deep abs, shoulders, glutes`,
+    beg:`A static hold, so there is no repeated movement of any kind — one of the safest things you can do given the dizziness. Once you can hold 45 seconds cleanly, do not chase longer times; add weight on your back (ask someone at the gym, or use a plate) and keep the holds short.`,
+    steps:[
+      `Set up on your forearms and toes, elbows directly under your shoulders, on a mat.`,
+      `Make a straight line from the back of your head to your heels — hips neither sagging nor piked up.`,
+      `Squeeze your glutes and brace your abs as if you are about to be poked in the stomach.`,
+      `Keep your neck neutral, eyes looking at the floor just in front of your hands. Hold that exact position — do not lift or drop your head to check the clock.`,
+      `Hold for time, then lower your knees and come up slowly in one controlled movement.`
+    ],
+    cues:[`Hips level — a sagging plank is a lower-back exercise, not an ab exercise`,`Brace hard; a plank you can hold for 3 minutes is too easy to build anything`,`Breathe normally throughout, do not hold your breath`,`Head stays in line with the spine and completely still`,`Quality over time: 30 hard seconds beats 2 easy minutes`],
+    prog:`Once 45 seconds is easy: add a plate or weight on your upper back and go back to 20–30 seconds. Time is not the goal, tension is.`,
+    knee:`Use a mat so your forearms and toes are comfortable. Knees are off the floor, so there is no knee pressure. If you drop to your knees for the last few seconds, use a padded mat.`,
+    diz:`Static — nothing moves, which makes this very safe for you. The one thing to manage is getting down and up: do it once at the start and once at the end, slowly, and stand up in stages rather than jumping straight to your feet.`
+  },
+  {
+    id:`c5`, opt:true, n:`Dead Bug`, sr:`2–3 sets × 8–10 reps per side`, rest:`45–60 s`, anim:`deadbug`,
+    q:`dead bug exercise proper form`,
+    mus:`Deep core, lower abs, coordination`,
+    beg:`Optional finisher, and the best exercise on this page for teaching the deep core to hold your ribcage down — which makes every press and overhead lift stronger and safer. Your head rests on the floor the entire time and never moves.`,
+    steps:[
+      `Lie on your back on a mat with your arms pointing straight at the ceiling and your knees bent at 90° over your hips.`,
+      `Press your lower back flat into the floor and keep it there for the whole set — this is the actual exercise.`,
+      `Slowly lower your right arm overhead and straighten your left leg toward the floor at the same time.`,
+      `Stop before your lower back lifts off the floor, then return to the start under control.`,
+      `Alternate sides. Move slowly — this looks easy and is not.`
+    ],
+    cues:[`Lower back stays glued to the floor; the moment it arches, you have gone too far`,`Move slowly, about 3 seconds out and 3 seconds back`,`Breathe out as you extend`,`Head stays resting on the mat the whole set — never lift it to watch your legs`,`Shorten the range rather than losing the flat back`],
+    prog:`Progress by slowing down, extending further, or adding a light dumbbell in the moving hand. Do not rush this one into high reps.`,
+    knee:`No knee load at all — the knee stays bent and unweighted throughout.`,
+    diz:`Lie down once at the start and get up once at the end — never repeat the down-up cycle between reps. Your head stays flat and still on the mat throughout, which is exactly the position you want. Roll onto your side and push up to sitting, sit for a few seconds, then stand.`
+  }]
+}
+
+];
+
+/* ---------- 2. FORM ANIMATION ENGINE (inline SVG) ---------- */
+const C={b:'#8B9BB0',b2:'#5E6C80',eq:'#1E2733',eqs:'#3A4859',ld:'#E4293C',gl:'#3D4B5E'};
+const D2R=Math.PI/180;
+const pt=(o,a,l)=>[o[0]-Math.sin(a*D2R)*l, o[1]+Math.cos(a*D2R)*l];
+const seg=(a,b,w,col)=>`<path d="M${a[0].toFixed(1)} ${a[1].toFixed(1)} L${b[0].toFixed(1)} ${b[1].toFixed(1)}" stroke="${col||C.b}" stroke-width="${w||9}" stroke-linecap="round" fill="none"/>`;
+const rotG=(o,a,b,inner,dur)=>`<g class="an" style="transform-origin:${o[0]}px ${o[1]}px;--a:${a}deg;--b:${b}deg;--dur:${dur||2.9}s">${inner}</g>`;
+const slideG=(ax,ay,bx,by,inner,dur)=>`<g class="sl" style="--ax:${ax}px;--ay:${ay}px;--bx:${bx}px;--by:${by}px;--dur:${dur||2.9}s">${inner}</g>`;
+
+function loadGlyph(h,kind){
+  const [x,y]=h;
+  if(kind==='db') return `<rect x="${x-3}" y="${y-11}" width="6" height="22" rx="2" fill="${C.ld}"/>`;
+  if(kind==='dbh') return `<rect x="${x-10}" y="${y-3.5}" width="20" height="7" rx="3" fill="${C.ld}"/>`;
+  if(kind==='none') return '';
+  if(kind==='dbv') return `<rect x="${x-10}" y="${y-3.5}" width="20" height="7" rx="3" fill="${C.ld}"/>`;
+  if(kind==='bar') return `<rect x="${x-16}" y="${y-3}" width="32" height="6" rx="3" fill="${C.ld}"/>`;
+  if(kind==='handle') return `<circle cx="${x}" cy="${y}" r="5.5" fill="${C.ld}"/>`;
+  if(kind==='rope') return `<circle cx="${x}" cy="${y}" r="4.5" fill="${C.ld}"/>`;
+  return '';
+}
+function rom(a,b){
+  return `<g opacity=".55"><path d="M${a[0]} ${a[1]} L${b[0]} ${b[1]}" stroke="${C.ld}" stroke-width="1.4" stroke-dasharray="4 4" opacity=".7" fill="none"/>`+
+  `<circle cx="${a[0]}" cy="${a[1]}" r="2.6" fill="${C.ld}" opacity=".8"/><circle cx="${b[0]}" cy="${b[1]}" r="2.6" fill="${C.ld}" opacity=".8"/></g>`;
+}
+/* two-segment arm; m = mirror (-1 flips angles for the left arm) */
+function arm(S,sh,el,L,load,m,dur){
+  m=m||1;
+  const s0=sh[0]*m, s1=sh[1]*m, e0=el[0]*m, e1=el[1]*m;
+  const E=pt(S,0,L), H=pt(E,0,L);
+  const fore=seg(E,H,8)+rotG(H,-(s0+e0),-(s1+e1),loadGlyph(H,load),dur);
+  const inner=seg(S,E,9)+rotG(E,e0,e1,fore,dur);
+  const svg=rotG(S,s0,s1,inner,dur);
+  const hA=pt(pt(S,s0,L),s0+e0,L), hB=pt(pt(S,s1,L),s1+e1,L);
+  return {svg,hA,hB};
+}
+const floorL=`<path d="M0 158 H320" stroke="${C.eqs}" stroke-width="2"/>`;
+
+function rig(name){
+  const s=(x,y,w,h,r)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r||3}" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  switch(name){
+    case 'seatUp': return floorL+s(150,108,62,9)+s(196,52,11,58)+s(172,117,10,45);
+    case 'seatRow': return floorL+s(148,108,64,9)+s(196,60,11,50)+s(172,117,10,45)+s(40,120,26,42)+s(30,50,10,112);
+    case 'chestPad': return floorL+s(148,108,60,9)+s(126,54,10,58)+s(170,117,10,45);
+    case 'incline': return floorL+s(150,150,74,11)+s(178,116,14,36);
+    case 'cableHi': return floorL+s(28,26,14,136)+s(24,20,40,10,4)+s(30,60,26,50);
+    case 'benchF': return floorL+s(140,108,42,9)+s(146,117,30,45)+s(150,52,22,58);
+    case 'pulldownF': return floorL+s(140,108,42,9)+s(146,117,30,45)+s(60,18,200,9,4)+s(28,26,14,52);
+    case 'chestPadF': return floorL+s(140,108,42,9)+s(146,117,30,45)+s(138,60,46,10);
+    default: return floorL;
+  }
+}
+/* ---- SIDE-VIEW seated/standing figure (faces left) ---- */
+function sideBody(stand,tilt){
+  const HIP=stand?[160,104]:[186,106], SH=stand?[160,58]:[176,64], HD=stand?[156,42]:[170,48];
+  let legs;
+  if(stand){
+    legs=seg([160,104],[152,132],11,C.b2)+seg([152,132],[150,160],9,C.b2)+seg([150,160],[132,161],7,C.b2);
+  }else{
+    legs=seg([186,106],[142,104],12,C.b2)+seg([142,104],[138,158],10,C.b2)+seg([138,158],[120,160],7,C.b2);
+  }
+  const torso=seg(HIP,SH,17,C.b)+`<circle cx="${HD[0]}" cy="${HD[1]}" r="11.5" fill="${C.b}"/>`;
+  return {HIP,SH,body:legs+torso,tilt:tilt||0};
+}
+/* ---- FRONT-VIEW seated figure ---- */
+function frontBody(){
+  const SR=[184,64],SL=[136,64];
+  const body=seg([160,110],[152,146],11,C.b2)+seg([160,110],[168,146],11,C.b2)+
+    seg([152,146],[150,160],9,C.b2)+seg([168,146],[170,160],9,C.b2)+
+    `<path d="M148 58 H172 V108 H148 Z" fill="${C.b}" rx="6"/>`+
+    `<rect x="146" y="56" width="28" height="54" rx="9" fill="${C.b}"/>`+
+    `<circle cx="160" cy="42" r="12" fill="${C.b}"/>`+
+    `<rect x="134" y="58" width="52" height="9" rx="4.5" fill="${C.b}"/>`;
+  return {SR,SL,body};
+}
+function shell(inner,cap,tag){
+  return `<div class="demo"><div class="grid-bg"></div><svg class="fig" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`+
+    `<div class="tag">${tag||'Form loop'}</div><div class="cap">${cap||''}</div></div>`;
+}
+
+const PAT={
+ press:{v:'side',rig:'seatUp',sh:[95,80],el:[-125,0],load:'handle',cap:'Press forward · lower under control'},
+ incline:{v:'side',rig:'incline',tilt:34,sh:[104,84],el:[-125,-5],load:'db',cap:'Press up over the upper chest'},
+ ohext:{v:'side',rig:'seatUp',sh:[172,176],el:[122,-4],load:'db',cap:'Upper arms vertical · only forearms move'},
+ pushdown:{v:'side',stand:1,rig:'cableHi',sh:[8,4],el:[82,2],load:'bar',cap:'Elbows pinned · straighten and squeeze'},
+ row:{v:'side',rig:'seatRow',sh:[80,-20],el:[-10,87],load:'handle',cap:'Elbows drive back · torso upright'},
+ csrow:{v:'side',rig:'chestPad',sh:[76,-16],el:[-8,84],load:'handle',cap:'Chest stays on the pad'},
+ fly:{v:'front',rig:'benchF',sh:[-78,20],el:[20,140],load:'handle',cap:'Wide hug · elbow bend stays fixed'},
+ lateral:{v:'front',rig:'benchF',sh:[-6,-80],el:[14,14],load:'dbh',cap:'Lead with elbows · stop at shoulder height'},
+ pulldown:{v:'front',rig:'pulldownF',sh:[-160,-25],el:[0,100],load:'none',bar:1,cap:'Bar to the chest · elbows down and back'},
+ facepull:{v:'front',rig:'pulldownF',sh:[-62,-104],el:[12,-96],load:'rope',cap:'Elbows high · pull the rope apart'},
+ reardelt:{v:'front',rig:'chestPadF',sh:[-26,-86],el:[46,12],load:'handle',cap:'Sweep wide · squeeze the rear delts'},
+ curl:{v:'front',rig:'benchF',sh:[-8,-10],el:[0,170],load:'dbh',cap:'Elbows at your sides · full range'},
+ hammer:{v:'front',rig:'benchF',sh:[-8,-10],el:[0,170],load:'dbv',cap:'Palms face in the whole rep'},
+ ohpress:{v:'front',rig:'benchF',sh:[-40,-168],el:[-138,0],load:'dbh',cap:'Press overhead · head against the pad'}
+};
+
+function buildAnim(key){
+  const p=PAT[key];
+  if(p) return armPattern(p);
+  if(key==='legpress') return legPress();
+  if(key==='legext') return legMachine('ext');
+  if(key==='legcurl') return legMachine('curl');
+  if(key==='hipthrust') return hipThrust();
+  if(key==='calf') return calfRaise();
+  if(key==='kneeraise') return kneeRaise();
+  if(key==='crunch') return abCrunch();
+  if(key==='pallof') return pallof();
+  if(key==='plank') return plank();
+  if(key==='deadbug') return deadBug();
+  return shell('','Follow the written steps below','Demo');
+}
+function armPattern(p){
+  let out=rig(p.rig), a;
+  if(p.v==='side'){
+    const B=sideBody(p.stand,p.tilt);
+    a=arm(B.SH,p.sh,p.el,26,p.load);
+    let g=B.body+a.svg;
+    if(p.tilt){
+      const pad=`<rect x="186" y="34" width="13" height="84" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+                `<rect x="140" y="104" width="58" height="11" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+      g=`<g transform="rotate(${p.tilt} ${B.HIP[0]} ${B.HIP[1]})">${pad+g}</g>`;
+    }
+    out+=g;
+  }else{
+    const B=frontBody();
+    const aR=arm(B.SR,p.sh,p.el,24,p.load,1);
+    const aL=arm(B.SL,p.sh,p.el,24,p.load,-1);
+    a=aR;
+    out+=B.body+aR.svg+aL.svg;
+    if(p.bar){
+      out+=slideG(0,0,0,aR.hB[1]-aR.hA[1],
+        `<rect x="102" y="${(aR.hA[1]-3.5).toFixed(1)}" width="116" height="7" rx="3.5" fill="${C.ld}"/>`,2.9);
+    }
+  }
+  out+=rom(a.hA,a.hB);
+  return shell(out,p.cap);
+}
+function legMachine(mode){
+  const HIP=[188,106], KN=[142,104];
+  const ang = mode==='ext' ? [4,80] : [42,-44];
+  const shin=seg(KN,pt(KN,0,52),10,C.b2)+seg(pt(KN,0,52),pt(pt(KN,0,52),80,16),7,C.b2)+
+    `<rect x="${pt(KN,0,52)[0]-9}" y="${pt(KN,0,52)[1]-14}" width="7" height="20" rx="3" fill="${C.ld}"/>`;
+  const legs=seg(HIP,KN,12,C.b2)+rotG(KN,ang[0],ang[1],shin,3.0);
+  const torso=seg(HIP,[176,64],17,C.b)+`<circle cx="170" cy="48" r="11.5" fill="${C.b}"/>`;
+  const A=pt(KN,ang[0],52), Bp=pt(KN,ang[1],52);
+  return shell(rig('seatUp')+legs+torso+rom(A,Bp),
+    mode==='ext'?'Extend smoothly · stop short of lockout':'Curl the heels back · squeeze at the end');
+}
+function legPress(){
+  const HIP=[196,120], L1=34, L2=34;
+  const a1=[158,124], a2=[-94,-2];
+  const K=pt(HIP,0,L1), F=pt(K,0,L2);
+  const shin=seg(K,F,10,C.b2)+`<rect x="${F[0]-11}" y="${F[1]-13}" width="9" height="26" rx="3" fill="${C.b2}"/>`;
+  const leg=rotG(HIP,a1[0],a1[1],seg(HIP,K,13,C.b2)+rotG(K,a2[0],a2[1],shin,3.1),3.1);
+  const fA=pt(pt(HIP,a1[0],L1),a1[0]+a2[0],L2), fB=pt(pt(HIP,a1[1],L1),a1[1]+a2[1],L2);
+  const dx=fB[0]-fA[0], dy=fB[1]-fA[1], deg=Math.atan2(dy,dx)*180/Math.PI, ln=Math.hypot(dx,dy)||1;
+  const ux=dx/ln, uy=dy/ln;
+  const ramp=`<path d="M${(fA[0]-ux*80).toFixed(1)} ${(fA[1]-uy*80).toFixed(1)} L${(fB[0]+ux*90).toFixed(1)} ${(fB[1]+uy*90).toFixed(1)}" stroke="${C.eqs}" stroke-width="2" stroke-dasharray="6 5" fill="none"/>`;
+  const plate=slideG(0,0,dx,dy,`<g transform="rotate(${deg.toFixed(1)} ${fA[0].toFixed(1)} ${fA[1].toFixed(1)})"><rect x="${(fA[0]-7).toFixed(1)}" y="${(fA[1]-34).toFixed(1)}" width="14" height="68" rx="4" fill="${C.eq}" stroke="${C.ld}" stroke-width="2"/></g>`,3.1);
+  const SHo=pt(HIP,-158,52);
+  const torso=seg(HIP,SHo,17,C.b)+`<circle cx="${pt(HIP,-158,68)[0].toFixed(1)}" cy="${pt(HIP,-158,68)[1].toFixed(1)}" r="11.5" fill="${C.b}"/>`;
+  const seat=`<g transform="rotate(20 ${HIP[0]} ${HIP[1]})"><rect x="150" y="116" width="70" height="10" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/><rect x="208" y="60" width="12" height="58" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/></g>`;
+  return shell(floorL+ramp+seat+plate+leg+torso+rom(fA,fB),'Controlled depth · never lock the knees');
+}
+function hipThrust(){
+  const SH=[216,96], KN=[132,126], TL=62;
+  const bench=`<rect x="206" y="100" width="62" height="11" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/><rect x="230" y="111" width="11" height="51" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  const HIPc=pt(SH,72,TL);
+  const torso=rotG(SH,-18,18,
+    seg(SH,HIPc,17,C.b)+`<circle cx="${(SH[0]+7)}" cy="${(SH[1]-13)}" r="11" fill="${C.b}"/>`+
+    `<rect x="${(HIPc[0]-15).toFixed(1)}" y="${(HIPc[1]-19).toFixed(1)}" width="30" height="9" rx="4" fill="${C.ld}"/>`,3.0);
+  const thigh=rotG(KN,-78,-139,seg(KN,pt(KN,0,42),13,C.b2),3.0);
+  const shin=seg(KN,[128,160],10,C.b2)+seg([128,160],[110,161],7,C.b2);
+  const hA=pt(SH,72-18,TL), hB=pt(SH,72+18,TL);
+  return shell(floorL+bench+shin+thigh+torso+rom(hA,hB),'Drive hips up · squeeze glutes · shins vertical');
+}
+function calfRaise(){
+  const HIP=[186,100], KN=[142,98], AN=[138,146], TOE=[116,152];
+  const upper=slideG(0,0,0,-9,seg(HIP,KN,12,C.b2)+seg(KN,AN,10,C.b2)+seg(HIP,[176,58],17,C.b)+`<circle cx="170" cy="42" r="11.5" fill="${C.b}"/>`,2.6);
+  const foot=rotG(TOE,0,-26,seg(AN,TOE,8,C.b2),2.6);
+  const plat=`<rect x="100" y="150" width="44" height="12" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  const pad=`<rect x="140" y="82" width="46" height="12" rx="4" fill="${C.eq}" stroke="${C.ld}" stroke-width="2"/>`;
+  return shell(floorL+rig('seatUp')+plat+upper+foot+pad+rom([138,146],[138,131]),'Deep stretch down · high squeeze up');
+}
+
+function kneeRaise(){
+  const HIP=[172,108], SH=[168,64];
+  const frame=`<rect x="186" y="40" width="13" height="122" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+    `<rect x="150" y="86" width="42" height="10" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`+
+    `<rect x="176" y="52" width="12" height="42" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  const torso=seg(HIP,SH,17,C.b)+`<circle cx="${SH[0]-5}" cy="${SH[1]-15}" r="11.5" fill="${C.b}"/>`+seg(SH,[150,90],8,C.b);
+  const K=pt(HIP,0,32), F=pt(K,0,30);
+  const legInner=seg(HIP,K,13,C.b2)+rotG(K,-4,-96,seg(K,F,10,C.b2)+seg(F,pt(F,80,14),7,C.b2),2.8);
+  const leg=rotG(HIP,-2,84,legInner,2.8);
+  const kA=pt(HIP,-2,32), kB=pt(HIP,84,32);
+  return shell(floorL+frame+leg+torso+rom(kA,kB),'Curl the knees up · head stays still');
+}
+function abCrunch(){
+  const HIP=[188,108], SH=[176,64];
+  const pad=`<rect x="150" y="60" width="44" height="11" rx="4" fill="${C.eq}" stroke="${C.ld}" stroke-width="2"/>`;
+  const torsoG=rotG(HIP,-4,26,seg(HIP,SH,17,C.b)+`<circle cx="${SH[0]-6}" cy="${SH[1]-15}" r="11.5" fill="${C.b}"/>`,2.6);
+  const legs=seg(HIP,[144,106],12,C.b2)+seg([144,106],[140,152],10,C.b2)+seg([140,152],[122,155],7,C.b2);
+  const hA=pt(HIP,-4+180,44), hB=pt(HIP,26+180,44);
+  return shell(floorL+rig('seatUp')+legs+torsoG+pad+rom([SH[0]-6,SH[1]-15],[SH[0]-24,SH[1]+4]),
+    'Ribs toward hips · short, hard range');
+}
+function pallof(){
+  const B=sideBody(1);
+  const a=arm(B.SH,[86,90],[-84,-2],26,'handle');
+  const tower=`<rect x="34" y="30" width="14" height="132" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/><rect x="30" y="62" width="26" height="50" rx="3" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  const cable=`<path d="M48 84 L${a.hB[0].toFixed(1)} ${a.hB[1].toFixed(1)}" stroke="${C.ld}" stroke-width="1.6" stroke-dasharray="5 4" opacity=".55" fill="none"/>`;
+  return shell(floorL+tower+cable+B.body+a.svg+rom(a.hA,a.hB),'Press out · let nothing else move');
+}
+function plank(){
+  const EL=[116,152], HAND=[152,152], SHo=[122,120], HIPo=[192,114], KNEE=[224,132], TOE=[248,152];
+  const mat=`<rect x="96" y="152" width="166" height="8" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  const body=seg(SHo,HIPo,17,C.b)+seg(HIPo,KNEE,13,C.b2)+seg(KNEE,TOE,10,C.b2)+
+    seg(SHo,EL,9,C.b)+seg(EL,HAND,8,C.b)+`<circle cx="108" cy="114" r="11.5" fill="${C.b}"/>`;
+  const line=`<path d="M100 110 L252 150" stroke="${C.ld}" stroke-width="1.5" stroke-dasharray="5 4" opacity=".5" fill="none"/>`;
+  const hold=`<text x="160" y="48" fill="${C.ld}" font-size="13" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif" opacity=".85">HOLD · 20–45 s</text>`;
+  return shell(floorL+mat+line+body+hold,'Straight line · brace hard · nothing moves');
+}
+function deadBug(){
+  const SHo=[132,132], HIPo=[200,134];
+  const mat=`<rect x="92" y="142" width="168" height="9" rx="4" fill="${C.eq}" stroke="${C.eqs}" stroke-width="1.5"/>`;
+  const body=seg(SHo,HIPo,17,C.b)+`<circle cx="118" cy="130" r="11.5" fill="${C.b}"/>`;
+  const armG=rotG(SHo,6,-86,seg(SHo,pt(SHo,0,-46),9,C.b),2.9);
+  const TH=pt(HIPo,0,34);
+  const legG=rotG(HIPo,170,120,seg(HIPo,TH,13,C.b2)+rotG(TH,88,4,seg(TH,pt(TH,0,32),10,C.b2),2.9),2.9);
+  return shell(floorL+mat+legG+body+armG+rom(pt(SHo,6,-46),pt(SHo,-86,-46)),'Lower back stays flat · head rests down');
+}
+
+/* ---------- 3. STATE ---------- */
+const KEY='wpi-muscle-v1';
+const today=()=>new Date().toISOString().slice(0,10);
+let S=load();
+function load(){
+  try{const r=JSON.parse(localStorage.getItem(KEY)); if(r&&typeof r==='object') return Object.assign({days:{},logs:{},vids:{},weights:[],meas:[]},r);}catch(e){}
+  return {days:{},logs:{},vids:{},weights:[],meas:[]};
+}
+function save(){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){} }
+function dayState(id){
+  let d=S.days[id];
+  if(!d||d.date!==today()){ d={date:today(),done:{}}; S.days[id]=d; save(); }
+  return d;
+}
+/* --- per-exercise working weight + history --- */
+function getLog(id){
+  const L=S.logs[id]||{};
+  if(!L.hist) L.hist=[];
+  return L;
+}
+function saveLog(id,field,val){
+  const L=getLog(id);
+  L[field]=(val===''||val==null||isNaN(val))?null:Number(val);
+  const t=today();
+  const i=L.hist.findIndex(h=>h.d===t);
+  const e={d:t,w:L.w,r:L.r};
+  if(L.w==null&&L.r==null){ if(i>=0) L.hist.splice(i,1); }
+  else if(i>=0) L.hist[i]=e; else L.hist.push(e);
+  L.hist=L.hist.slice(-12);
+  S.logs[id]=L; save();
+  return L;
+}
+function fmtDate(d){
+  const p=String(d).split('-');
+  const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][Number(p[1])-1];
+  return mo+' '+Number(p[2]);
+}
+function lastLine(id){
+  const L=getLog(id), t=today();
+  const prev=L.hist.filter(h=>h.d!==t&&h.w!=null).slice(-1)[0];
+  if(!prev) return L.w!=null?'Saved — it will still be here next session.':'Leave it blank, test a weight today, then type it in. It stays saved.';
+  return `Last session (${fmtDate(prev.d)}): <b>${prev.w} lb${prev.r!=null?' × '+prev.r:''}</b>`;
+}
+function doneCount(id){ const d=S.days[id]; if(!d||d.date!==today()) return 0; return Object.values(d.done).filter(Boolean).length; }
+
+/* ---------- 4. NAV / ROUTER ---------- */
+const NAV=[
+ {id:'home',label:'Home',icon:'i-home',tab:'Home'},
+ {id:'workout',label:'Train',icon:'i-dumb',tab:'Workout Plan'},
+ {id:'nutrition',label:'Fuel',icon:'i-fork',tab:'Nutrition & Diet'},
+ {id:'progress',label:'Progress',icon:'i-chart',tab:'Progression & Tracking'},
+ {id:'safety',label:'Safety',icon:'i-shield',tab:'Safety & Recovery'},
+ {id:'dining',label:'Dining',icon:'i-pin',tab:'WPI Dining Guide'}
+];
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+$('#botnav').innerHTML=NAV.map(n=>`<button data-go="${n.id}"><svg><use href="#${n.icon}"/></svg>${n.label}</button>`).join('');
+$('#tabs').innerHTML=NAV.map(n=>`<button data-go="${n.id}">${n.tab}</button>`).join('');
+
+function go(view,dayId){
+  $$('.view').forEach(v=>v.classList.remove('on'));
+  const el=$('#v-'+view); if(el) el.classList.add('on');
+  $$('#botnav button,#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===view));
+  if(view==='workout'){
+    if(dayId){ renderDay(dayId); $('#day-list').style.display='none'; $('#day-detail').style.display='block'; }
+    else { $('#day-list').style.display='block'; $('#day-detail').style.display='none'; renderCards(); }
+  }
+  if(view==='progress') renderTrack();
+  window.scrollTo({top:0,behavior:'instant' in window?'auto':'auto'});
+}
+function route(){
+  const h=(location.hash||'#home').slice(1);
+  const [v,d]=h.split('/');
+  if(v==='workout') go('workout',d); else go(NAV.some(n=>n.id===v)?v:'home');
+}
+function nav(view,day){ try{ location.hash='#'+view+(day?'/'+day:''); }catch(e){} go(view,day); refreshHome(); }
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]'); if(g){ nav(g.dataset.go); return; }
+  const c=e.target.closest('[data-close]'); if(c) closeModal();
+});
+window.addEventListener('hashchange',route);
+
+/* ---------- 5. WORKOUT RENDER ---------- */
+function renderCards(){
+  $('#cards').innerHTML=DAYS.map(d=>{
+    const n=doneCount(d.id), t=d.ex.length, pct=Math.round(n/t*100);
+    return `<button class="day-card${d.addon?' addon':''}" data-day="${d.id}">
+      <div class="num">${d.addon?'Core Block · 3×/week':d.tag}</div>
+      <div class="ttl">${d.n}</div>
+      <div class="sub">${d.sub}</div>
+      <div class="pbar ${n===t?'ok':''}"><i style="width:${pct}%"></i></div>
+      <div style="font-size:11.5px;color:${n===t?'var(--ok)':'var(--dim)'};margin-top:6px;font-weight:700">
+        ${n===0?'Not started today':(n===t?'Completed today ✓':n+' of '+t+' done today')}</div>
+      <span class="go"><svg><use href="#i-chev"/></svg></span>
+    </button>`;
+  }).join('');
+  $$('#cards .day-card').forEach(b=>b.onclick=()=>nav('workout',b.dataset.day));
+}
+function renderDay(id){
+  const d=DAYS.find(x=>x.id===id); if(!d){ nav('workout'); return; }
+  const st=dayState(id), n=doneCount(id), t=d.ex.length;
+  $('#day-detail').innerHTML=`
+  <div class="day-head">
+    <button class="back" id="back"><svg><use href="#i-back"/></svg> All days</button>
+    <div class="row"><h2>${d.addon?d.n:d.tag+' · '+d.n}</h2><span class="done-count" id="dc">${n}/${t}</span></div>
+    <div class="pbar ${n===t?'ok':''}" style="margin-top:8px"><i id="dp" style="width:${Math.round(n/t*100)}%"></i></div>
+  </div>
+  <details class="card" style="padding:0" ${n===0?'open':''}>
+    <summary style="padding:14px;cursor:pointer;font-weight:700;list-style:none">${d.addon?'How to use the core block':'Warm-up &amp; session rules'}</summary>
+    <div style="padding:0 14px 14px;font-size:14px;color:var(--mut)">
+      ${d.addon?`<b style="color:var(--tx)">When:</b> at the end of any three sessions a week, after your main lifts — never before them. 10–15 minutes total.<br><br>
+      <b style="color:var(--tx)">Why weighted:</b> abs are muscles. Endless bodyweight reps make them enduring, not bigger. Add resistance and keep reps in the 10–15 range, exactly like chest and arms.<br><br>
+      <b style="color:var(--tx)">Head rule:</b> every movement here was chosen because your head either stays upright and still or rests on a mat. No sit-ups, no crunches on the floor, no V-ups, no fast repetitions.<br><br>
+      <b style="color:var(--tx)">Abs still need food:</b> this block builds the muscle. Whether it shows depends on the waist staying flat while you gain — see Nutrition.<br><br>
+      <b style="color:var(--tx)">Rest:</b> 45–90 s between sets.<br><br>
+      <b style="color:var(--tx)">Effort:</b> hard but controlled — stop a set if form breaks or you feel lightheaded.`:
+      `<b style="color:var(--tx)">Warm-up:</b> ${RULES.warm}.<br><br>
+      <b style="color:var(--tx)">Rest:</b> ${RULES.rest}.<br><br>
+      <b style="color:var(--tx)">Effort:</b> ${RULES.rir} — stop a set if form breaks, a knee hurts, or you feel lightheaded.<br><br>
+      <b style="color:var(--tx)">Tempo:</b> 1–2 s up, 2–3 s down, no bouncing. Stay seated or still for the whole set and stand up slowly afterwards.`}
+    </div>
+  </details>
+  ${d.ex.map((x,i)=>exCard(x,i,!!st.done[x.id])).join('')}
+  <button class="btn full" id="reset" style="margin-top:6px">Reset today's checkmarks</button>
+  <p class="lead" style="font-size:13px;text-align:center;margin-top:12px">Checkmarks clear automatically at the start of a new day. Your logged weights are kept.</p>`;
+  $('#back').onclick=()=>nav('workout');
+  $('#reset').onclick=()=>{ S.days[id]={date:today(),done:{}}; save(); renderDay(id); };
+  wireDay(id);
+}
+function exCard(x,i,done){
+  const lg=S.logs[x.id];
+  return `<div class="ex ${done?'done':''}" id="ex-${x.id}">
+    <div class="ex-top">
+      <div class="ex-n">${i+1}</div>
+      <div class="ex-body">
+        <div class="ex-name" data-ex="${x.id}">${x.n}
+          ${x.opt?'<span class="opt-tag">Optional</span>':''}
+          <span class="play"><svg><use href="#i-play"/></svg> Form</span>
+        </div>
+        <div class="ex-meta">
+          <span class="chip acc">${x.sr}</span>
+          <span class="chip">Rest ${x.rest}</span>
+          ${lg&&lg.w!=null?`<span class="chip wt-chip" id="chip-${x.id}">${lg.w} lb${lg.r!=null?' × '+lg.r:''}</span>`:`<span class="chip wt-chip" id="chip-${x.id}" style="display:none"></span>`}
+        </div>
+      </div>
+      <button class="chk" data-chk="${x.id}" aria-label="Mark complete"><svg><use href="#i-check"/></svg></button>
+    </div>
+    <div class="wt">
+      <div class="wt-l">${x.anim==='plank'?'Added weight &amp; hold time':'Weight you lift'}</div>
+      <div class="wt-row">
+        <button class="stp" data-stp="${x.id}" data-d="-1" aria-label="Less weight">−</button>
+        <input class="wt-in" type="number" inputmode="decimal" placeholder="—" data-log="${x.id}" data-f="w" value="${lg&&lg.w!=null?lg.w:''}">
+        <span class="unit">lb</span>
+        <button class="stp" data-stp="${x.id}" data-d="1" aria-label="More weight">+</button>
+        <span class="mult">×</span>
+        <input class="rp-in" type="number" inputmode="numeric" placeholder="${x.anim==='plank'?'sec':'reps'}" data-log="${x.id}" data-f="r" value="${lg&&lg.r!=null?lg.r:''}">
+      </div>
+      <div class="wt-last" id="last-${x.id}">${lastLine(x.id)}</div>
+    </div>
+    <details class="cues">
+      <summary>Technique cues &amp; safety notes</summary>
+      <div class="in">
+        <p style="margin-bottom:10px"><b>Muscles worked:</b> ${x.mus}</p>
+        <p style="margin-bottom:10px"><b>Beginner note:</b> ${x.beg}</p>
+        <b>Technique cues</b>
+        <ul style="margin:6px 0 10px">${x.cues.map(c=>`<li>${c}</li>`).join('')}</ul>
+        <p style="margin-bottom:0"><b>Progression:</b> ${x.prog}</p>
+        <div class="mod k"><b>Knee modification</b>${x.knee}</div>
+        <div class="mod d"><b>Dizziness modification</b>${x.diz}</div>
+      </div>
+    </details>
+  </div>`;
+}
+function wireDay(id){
+  $$('#day-detail [data-chk]').forEach(b=>b.onclick=()=>{
+    const st=dayState(id), k=b.dataset.chk;
+    st.done[k]=!st.done[k]; save();
+    $('#ex-'+k).classList.toggle('done',!!st.done[k]);
+    const d=DAYS.find(x=>x.id===id), n=doneCount(id), t=d.ex.length;
+    $('#dc').textContent=n+'/'+t; $('#dp').style.width=Math.round(n/t*100)+'%';
+    $('#dp').parentElement.classList.toggle('ok',n===t);
+  });
+  $$('#day-detail [data-ex]').forEach(el=>el.onclick=()=>openModal(el.dataset.ex));
+  const sync=k=>{
+    const L=getLog(k), chip=$('#chip-'+k), last=$('#last-'+k);
+    if(chip){
+      if(L.w!=null){ chip.textContent=L.w+' lb'+(L.r!=null?' × '+L.r:''); chip.style.display=''; }
+      else chip.style.display='none';
+    }
+    if(last) last.innerHTML=lastLine(k);
+  };
+  $$('#day-detail [data-log]').forEach(inp=>{
+    const handler=()=>{ saveLog(inp.dataset.log,inp.dataset.f,inp.value); sync(inp.dataset.log); };
+    inp.onchange=handler; inp.onblur=handler;
+  });
+  $$('#day-detail [data-stp]').forEach(b=>b.onclick=()=>{
+    const k=b.dataset.stp, d=Number(b.dataset.d);
+    const inp=$(`#day-detail [data-log="${k}"][data-f="w"]`);
+    const cur=Number(inp.value||0);
+    const next=Math.max(0,Math.round((cur+d*5)*10)/10);
+    inp.value=next||'';
+    saveLog(k,'w',inp.value); sync(k);
+  });
+}
+
+/* ---------- 6. FORM MODAL ---------- */
+let curEx=null;
+function findEx(id){ for(const d of DAYS){ const e=d.ex.find(x=>x.id===id); if(e) return e; } }
+function ytId(u){
+  if(!u) return '';
+  const m=String(u).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+  return m?m[1]:(/^[A-Za-z0-9_-]{11}$/.test(u.trim())?u.trim():'');
+}
+function openModal(id){
+  const x=findEx(id); if(!x) return; curEx=x;
+  $('#m-title').textContent=x.n;
+  $('#m-sub').textContent=x.sr+' · rest '+x.rest;
+  const vid=S.vids[x.id], vi=ytId(vid);
+  const player = vi
+    ? `<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${vi}?rel=0" title="Form video" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+    : buildAnim(x.anim);
+  $('#m-body').innerHTML=`
+    ${player}
+    <div class="vsrc">
+      <input id="vin" placeholder="Paste a YouTube link to pin your form video" value="${vid?String(vid).replace(/"/g,'&quot;'):''}">
+      <button class="btn sm" id="vsave">Save</button>
+      ${vi?'<button class="btn sm gho" id="vclear">Remove</button>':''}
+    </div>
+    <a class="btn full gho" style="margin-bottom:14px" target="_blank" rel="noopener"
+       href="https://www.youtube.com/results?search_query=${encodeURIComponent(x.q)}">
+       <svg><use href="#i-play"/></svg> Search YouTube: “${x.q}”</a>
+    ${vi?'':'<p style="font-size:12.5px;color:var(--dim);margin:-6px 0 14px">Above is a motion diagram of the movement pattern. Paste any YouTube form video into the box to replace it permanently on this device.</p>'}
+    <h4>Your weight on this exercise</h4>
+    <div class="wt" style="padding:0 0 4px">
+      <div class="wt-row">
+        <button class="stp" id="m-minus" aria-label="Less weight">−</button>
+        <input class="wt-in" id="m-w" type="number" inputmode="decimal" placeholder="—" value="${(function(){const L=getLog(x.id);return L.w!=null?L.w:''})()}">
+        <span class="unit">lb</span>
+        <button class="stp" id="m-plus" aria-label="More weight">+</button>
+        <span class="mult">×</span>
+        <input class="rp-in" id="m-r" type="number" inputmode="numeric" placeholder="${x.anim==='plank'?'sec':'reps'}" value="${(function(){const L=getLog(x.id);return L.r!=null?L.r:''})()}">
+      </div>
+      <div class="wt-last" id="m-last">${lastLine(x.id)}</div>
+    </div>
+    ${(function(){
+      const h=getLog(x.id).hist.slice().reverse().slice(0,6);
+      if(!h.length) return '<p style="font-size:13px;color:var(--dim);margin:10px 0 16px">Once you log a few sessions here, your history shows up so you can see whether the weight is actually going up.</p>';
+      return '<div class="hist">'+h.map(e=>`<div class="r"><span>${fmtDate(e.d)}</span><b>${e.w!=null?e.w+' lb':'—'}${e.r!=null?' × '+e.r:''}</b></div>`).join('')+'</div>';
+    })()}
+    <h4>How to perform it</h4>
+    <ol class="steps">${x.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+    <div class="spec">
+      <div><span>Sets × reps</span><b>${x.sr}</b></div>
+      <div><span>Rest</span><b>${x.rest}</b></div>
+      <div class="wide"><span>Primary muscles</span><b>${x.mus}</b></div>
+    </div>
+    <h4>Beginner note</h4><p style="font-size:14.5px;color:var(--mut)">${x.beg}</p>
+    <h4>Technique cues</h4><ul class="tick" style="margin-bottom:14px">${x.cues.map(c=>`<li>${c}</li>`).join('')}</ul>
+    <h4>Progression</h4><p style="font-size:14.5px;color:var(--mut)">${x.prog}</p>
+    <div class="mod k"><b>Knee modification</b>${x.knee}</div>
+    <div class="mod d" style="margin-bottom:6px"><b>Dizziness modification</b>${x.diz}</div>`;
+  const vs=$('#vsave'); if(vs) vs.onclick=()=>{
+    const v=$('#vin').value.trim();
+    if(v && !ytId(v)){ $('#vin').style.borderColor='var(--acc)'; return; }
+    if(v) S.vids[x.id]=v; else delete S.vids[x.id];
+    save(); openModal(x.id);
+  };
+  const vc=$('#vclear'); if(vc) vc.onclick=()=>{ delete S.vids[x.id]; save(); openModal(x.id); };
+  const mw=$('#m-w'), mr=$('#m-r');
+  const msync=()=>{
+    $('#m-last').innerHTML=lastLine(x.id);
+    const chip=$('#chip-'+x.id), last=$('#last-'+x.id), L=getLog(x.id);
+    if(chip){ if(L.w!=null){ chip.textContent=L.w+' lb'+(L.r!=null?' × '+L.r:''); chip.style.display=''; } else chip.style.display='none'; }
+    if(last) last.innerHTML=lastLine(x.id);
+    const cw=$(`#day-detail [data-log="${x.id}"][data-f="w"]`), cr=$(`#day-detail [data-log="${x.id}"][data-f="r"]`);
+    if(cw) cw.value=L.w!=null?L.w:''; if(cr) cr.value=L.r!=null?L.r:'';
+  };
+  const mh=f=>()=>{ saveLog(x.id,f,(f==='w'?mw:mr).value); msync(); };
+  mw.onchange=mh('w'); mw.onblur=mh('w'); mr.onchange=mh('r'); mr.onblur=mh('r');
+  $('#m-minus').onclick=()=>{ mw.value=Math.max(0,Math.round(((Number(mw.value||0))-5)*10)/10)||''; saveLog(x.id,'w',mw.value); msync(); };
+  $('#m-plus').onclick=()=>{ mw.value=Math.round(((Number(mw.value||0))+5)*10)/10; saveLog(x.id,'w',mw.value); msync(); };
+  $('#modal').classList.add('on');
+  $('#sheet').scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+function closeModal(){ $('#modal').classList.remove('on'); $('#m-body').innerHTML=''; document.body.style.overflow=''; }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+/* ---------- 7. TRACKING ---------- */
+function renderTrack(){
+  const w=S.weights.slice().sort((a,b)=>a.d<b.d?-1:1);
+  const last=w[w.length-1];
+  $('#w-latest').textContent='Latest: '+(last?last.v.toFixed(1)+' lb':'—');
+  const avg=arr=>arr.reduce((s,x)=>s+x.v,0)/arr.length;
+  const a7=w.slice(-7), p7=w.slice(-14,-7);
+  $('#w-avg').textContent='7-day avg: '+(a7.length?avg(a7).toFixed(1)+' lb':'—');
+  let tr='—';
+  if(a7.length>=3&&p7.length>=3){ const d=avg(a7)-avg(p7); tr=(d>=0?'+':'')+d.toFixed(2)+' lb/wk'; }
+  $('#w-trend').textContent='Weekly change: '+tr;
+  drawSpark(w);
+  $('#w-list').innerHTML = w.length? w.slice().reverse().slice(0,30).map(r=>
+    `<div class="r"><span>${r.d}</span><b>${r.v.toFixed(1)} lb</b><button data-del="${r.d}">✕</button></div>`).join('')
+    : '<p class="lead" style="font-size:13.5px">No entries yet — log your weight tomorrow morning to start the trend.</p>';
+  $$('#w-list [data-del]').forEach(b=>b.onclick=()=>{ S.weights=S.weights.filter(x=>x.d!==b.dataset.del); save(); renderTrack(); });
+  $('#m-list').innerHTML = S.meas.length? S.meas.slice().reverse().slice(0,6).map(m=>
+    `<div class="kv"><span>${m.d}${(m.chest&&m.waist)?` · <b style="color:var(--ok)">gap ${(m.chest-m.waist).toFixed(1)}"</b>`:''}</span><b>Chest ${m.chest||'–'} · Arm ${m.arm||'–'} · Sh ${m.sh||'–'} · Waist ${m.waist||'–'}</b></div>`).join('')
+    : '<span class="lead" style="font-size:13.5px">No measurements saved yet.</span>';
+}
+function drawSpark(w){
+  const svg=$('#spark');
+  svg.querySelectorAll('path,circle,text,line').forEach(n=>n.remove());
+  const empty=$('#spark-empty');
+  if(w.length<2){ svg.style.display='none'; empty.style.display='block'; return; }
+  svg.style.display='block'; empty.style.display='none';
+  const vs=w.map(x=>x.v), mn=Math.min(...vs), mx=Math.max(...vs), pad=(mx-mn)||1;
+  const X=i=>10+i*(300/(w.length-1)), Y=v=>96-((v-mn+pad*0.15)/(pad*1.3))*80;
+  const d=w.map((r,i)=>`${i?'L':'M'}${X(i).toFixed(1)} ${Y(r.v).toFixed(1)}`).join(' ');
+  svg.insertAdjacentHTML('beforeend',`<path class="f" d="${d} L${X(w.length-1).toFixed(1)} 108 L10 108 Z"/><path class="l" d="${d}"/>`);
+  svg.insertAdjacentHTML('beforeend',`<circle cx="${X(w.length-1).toFixed(1)}" cy="${Y(vs[vs.length-1]).toFixed(1)}" r="3.6"/>`);
+}
+$('#w-add').onclick=()=>{
+  const v=parseFloat($('#w-in').value);
+  if(!v||v<50||v>500){ $('#w-in').style.borderColor='var(--acc)'; return; }
+  S.weights=S.weights.filter(x=>x.d!==today()); S.weights.push({d:today(),v}); save();
+  $('#w-in').value=''; $('#w-in').style.borderColor=''; renderTrack();
+};
+$('#m-save').onclick=()=>{
+  const m={d:today()};
+  $$('.m-in').forEach(i=>{ if(i.value) m[i.dataset.m]=Number(i.value); });
+  if(Object.keys(m).length<2) return;
+  S.meas=S.meas.filter(x=>x.d!==m.d); S.meas.push(m); save();
+  $$('.m-in').forEach(i=>i.value=''); renderTrack();
+};
+$('#ex-data').onclick=()=>{
+  const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='wpi-training-data-'+today()+'.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+};
+$('#clr-data').onclick=()=>{
+  if(!confirm('Delete all logged weights, lifts, measurements and saved videos on this device?')) return;
+  S={days:{},logs:{},vids:{},weights:[],meas:[]}; save(); renderTrack(); renderCards();
+};
+
+/* ---------- 8. HOME "next workout" ---------- */
+function nextDay(){
+  for(const d of DAYS){ if(!d.addon && doneCount(d.id)<d.ex.length) return d; }
+  return DAYS[0];
+}
+function refreshHome(){
+  const d=nextDay(), n=doneCount(d.id);
+  $('#today-line').innerHTML = n>0
+    ? `You're mid-session: <b style="color:var(--tx)">${d.tag} · ${d.n}</b> — ${n} of ${d.ex.length} exercises done.`
+    : `Next up: <b style="color:var(--tx)">${d.tag} · ${d.n}</b>. ${d.sub}`;
+  $('#today-btn').textContent=(n>0?'Continue ':'Start ')+d.tag+' · '+d.n;
+  $('#today-btn').onclick=()=>nav('workout',d.id);
+}
+
+/* ---------- 9. OFFLINE (service worker) ---------- */
+if('serviceWorker' in navigator && location.protocol==='https:'){
+  window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
+}
+
+/* ---------- 10. BOOT ---------- */
+renderCards(); refreshHome(); renderTrack(); route();
+window.addEventListener('hashchange',refreshHome);
+</script>
+</body>
+</html>
